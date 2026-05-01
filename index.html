@@ -79,6 +79,13 @@
     .stat-val { font-size:22px; font-weight:900; font-family:'JetBrains Mono',monospace; background:linear-gradient(90deg,#9d96ff,#c084fc); -webkit-background-clip:text; -webkit-text-fill-color:transparent; }
     .stat-lbl { font-size:10px; font-weight:700; letter-spacing:1.2px; text-transform:uppercase; color:#2a2d48; }
 
+    /* ── MOBILE NAV FIX ── */
+    .header-tagline { font-size:9px; font-weight:700; letter-spacing:2.5px; color:#1a1d35; text-transform:uppercase; margin-top:1px; }
+    @media (max-width:480px) {
+      .header-tagline { display:none; }
+      .nav-pill { padding:8px 10px; font-size:10px; letter-spacing:0.4px; }
+    }
+
     /* ── PRINT STYLES ── */
     @media print {
       body { background: white !important; }
@@ -529,14 +536,14 @@
                 {/* Modal header */}
                 <div style={{ padding:"24px 28px 20px", borderBottom:"1px solid rgba(255,255,255,0.06)", display:"flex", justifyContent:"space-between", alignItems:"flex-start", flexShrink:0 }}>
                   <div>
-                    <div style={{ fontSize:10, fontWeight:800, letterSpacing:"2px", textTransform:"uppercase", color:"#7c6ff7", marginBottom:6 }}>Legal · Privacy</div>
-                    <div style={{ fontSize:20, fontWeight:900, color:"#e8e8f0", letterSpacing:"-0.3px" }}>Terms of Service &amp; Privacy</div>
-                    <div style={{ fontSize:12, color:"#3a3d58", marginTop:4, fontWeight:600 }}>Invoice Expert · Effective 2026 · Ontario, Canada</div>
+                    <div style={{ fontSize:11, fontWeight:800, letterSpacing:"2px", textTransform:"uppercase", color:"#9d96ff", marginBottom:6 }}>Legal · Privacy</div>
+                    <div style={{ fontSize:22, fontWeight:900, color:"#e8e8f0", letterSpacing:"-0.3px" }}>Terms of Service &amp; Privacy</div>
+                    <div style={{ fontSize:13, color:"#6b6d8a", marginTop:5, fontWeight:600 }}>Invoice Expert · Effective 2026 · Ontario, Canada</div>
                   </div>
                   <button onClick={() => setShowTOS(false)} style={{ background:"rgba(255,255,255,0.04)", border:"1px solid #1a1d2e", borderRadius:"50%", width:34, height:34, color:"#6b6d8a", cursor:"pointer", fontSize:16, display:"flex", alignItems:"center", justifyContent:"center", flexShrink:0, marginLeft:16 }}>✕</button>
                 </div>
                 {/* Scrollable content */}
-                <div style={{ overflowY:"auto", padding:"24px 28px 28px", display:"flex", flexDirection:"column", gap:22 }}>
+                <div style={{ overflowY:"auto", padding:"24px 28px 28px", display:"flex", flexDirection:"column", gap:24 }}>
                   {[
                     { num:"1", title:"Data Sovereignty (Local-First)", icon:"🔒", text:"Unlike traditional accounting apps, we do not own or store your financial documents. All receipts are stored directly in your personal iCloud or Google Drive. We cannot see, sell, or lose your data because we never have it." },
                     { num:"2", title:"The Verification Handshake", icon:"🔏", text:"This app uses patent-pending cryptographic technology to 'seal' your digital records at the point of capture. This fingerprint (hash) is stored on our secure ledger to prove the integrity of your records for audit purposes." },
@@ -545,19 +552,19 @@
                     { num:"5", title:"2026 Privacy Compliance", icon:"🇨🇦", text:"We comply with the Canadian Consumer Privacy Protection Act (CPPA). Since we do not host your personal financial data, your 'Right to Erasure' is managed directly by you through your own storage provider." },
                   ].map(item => (
                     <div key={item.num} style={{ display:"flex", gap:16, alignItems:"flex-start" }}>
-                      <div style={{ flexShrink:0, width:38, height:38, borderRadius:10, background:"rgba(124,111,247,0.1)", border:"1px solid rgba(124,111,247,0.18)", display:"flex", alignItems:"center", justifyContent:"center", fontSize:18 }}>{item.icon}</div>
+                      <div style={{ flexShrink:0, width:42, height:42, borderRadius:10, background:"rgba(124,111,247,0.1)", border:"1px solid rgba(124,111,247,0.18)", display:"flex", alignItems:"center", justifyContent:"center", fontSize:20 }}>{item.icon}</div>
                       <div>
-                        <div style={{ fontWeight:800, fontSize:15, color:"#d0d0e8", marginBottom:6 }}>
-                          <span style={{ color:"#7c6ff7", fontFamily:"'JetBrains Mono',monospace", fontSize:12, marginRight:8 }}>{item.num}.</span>
+                        <div style={{ fontWeight:800, fontSize:16, color:"#e0e0f0", marginBottom:7 }}>
+                          <span style={{ color:"#9d96ff", fontFamily:"'JetBrains Mono',monospace", fontSize:13, marginRight:8 }}>{item.num}.</span>
                           {item.title}
                         </div>
-                        <div style={{ fontSize:14, color:"#5a5d7a", lineHeight:1.7 }}>{item.text}</div>
+                        <div style={{ fontSize:15, color:"#8a8daa", lineHeight:1.75 }}>{item.text}</div>
                       </div>
                     </div>
                   ))}
-                  <div style={{ borderTop:"1px solid #111320", paddingTop:18, fontSize:12, color:"#2e3150", lineHeight:1.7, textAlign:"center" }}>
+                  <div style={{ borderTop:"1px solid #1a1d2e", paddingTop:20, fontSize:13, color:"#5a5d7a", lineHeight:1.7, textAlign:"center" }}>
                     By using Invoice Expert you agree to these terms. Questions? Contact us at{" "}
-                    <span style={{ color:"#7c6ff7", fontWeight:700 }}>legal@invoiceexpert.ca</span>
+                    <span style={{ color:"#9d96ff", fontWeight:700 }}>legal@invoiceexpert.ca</span>
                   </div>
                 </div>
               </div>
@@ -572,7 +579,7 @@
                 <div style={{ fontWeight:900, fontSize:19, letterSpacing:"-0.5px", lineHeight:1.1 }}>
                   Invoice<span style={{ background:"linear-gradient(90deg,#9d96ff,#c084fc)", WebkitBackgroundClip:"text", WebkitTextFillColor:"transparent" }}>Expert</span>
                 </div>
-                <div style={{ fontSize:9, fontWeight:700, letterSpacing:"2.5px", color:"#1a1d35", textTransform:"uppercase", marginTop:1 }}>AI-POWERED · CANADIAN</div>
+                <div className="header-tagline">AI-POWERED · CANADIAN</div>
               </div>
             </div>
             <nav style={{ display:"flex", gap:0, flexShrink:0 }}>
