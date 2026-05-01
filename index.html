@@ -17,56 +17,55 @@
     ::-webkit-scrollbar-thumb { background: #1e2138; border-radius: 4px; }
     #root { min-height: 100%; }
 
-    .nav-pill { display:flex; flex-direction:column; align-items:center; gap:3px; padding:8px 16px; border-radius:10px; cursor:pointer; border:none; background:transparent; font-family:'Outfit',sans-serif; font-size:10px; font-weight:700; letter-spacing:0.8px; text-transform:uppercase; transition:all 0.2s; color:#383b5a; position:relative; }
+    .nav-pill { display:flex; flex-direction:column; align-items:center; gap:3px; padding:8px 16px; border-radius:10px; cursor:pointer; border:none; background:transparent; font-family:'Outfit',sans-serif; font-size:11px; font-weight:700; letter-spacing:0.8px; text-transform:uppercase; transition:all 0.2s; color:#383b5a; position:relative; }
     .nav-pill:hover { color:#8880d8; }
     .nav-pill.active { color:#c4bfff; background:rgba(124,111,247,0.1); }
 
-    .hero-btn { width:100%; border:none; border-radius:18px; cursor:pointer; font-family:'Outfit',sans-serif; display:flex; align-items:center; gap:18px; padding:22px 24px; background:linear-gradient(135deg,#7c6ff7 0%,#b06cf4 100%); box-shadow:0 8px 40px rgba(124,111,247,0.28),inset 0 1px 0 rgba(255,255,255,0.12); transition:all 0.2s; }
+    .hero-btn { width:100%; border:none; border-radius:18px; cursor:pointer; font-family:'Outfit',sans-serif; display:flex; align-items:center; gap:18px; padding:24px 26px; background:linear-gradient(135deg,#7c6ff7 0%,#b06cf4 100%); box-shadow:0 8px 40px rgba(124,111,247,0.28),inset 0 1px 0 rgba(255,255,255,0.12); transition:all 0.2s; }
     .hero-btn:hover { transform:translateY(-2px); box-shadow:0 14px 48px rgba(124,111,247,0.4),inset 0 1px 0 rgba(255,255,255,0.12); }
     .hero-btn:active { transform:scale(0.99); }
 
-    .ghost-btn { flex:1; border:1.5px solid #1a1d2e; border-radius:14px; cursor:pointer; font-family:'Outfit',sans-serif; display:flex; flex-direction:column; align-items:center; justify-content:center; gap:7px; padding:20px 14px; background:rgba(255,255,255,0.015); transition:all 0.2s; color:#6b6d8a; font-weight:700; font-size:13px; }
+    .ghost-btn { flex:1; border:1.5px solid #1a1d2e; border-radius:14px; cursor:pointer; font-family:'Outfit',sans-serif; display:flex; flex-direction:column; align-items:center; justify-content:center; gap:8px; padding:22px 14px; background:rgba(255,255,255,0.015); transition:all 0.2s; color:#6b6d8a; font-weight:700; font-size:15px; }
     .ghost-btn:hover { border-color:rgba(124,111,247,0.5); color:#9d96ff; background:rgba(124,111,247,0.05); }
 
-    .drop-zone { flex:1; border:1.5px dashed #1a1d2e; border-radius:14px; cursor:default; display:flex; flex-direction:column; align-items:center; justify-content:center; gap:7px; padding:20px 14px; transition:all 0.2s; color:#6b6d8a; font-weight:700; font-size:13px; font-family:'Outfit',sans-serif; }
+    .drop-zone { flex:1; border:1.5px dashed #1a1d2e; border-radius:14px; cursor:default; display:flex; flex-direction:column; align-items:center; justify-content:center; gap:8px; padding:22px 14px; transition:all 0.2s; color:#6b6d8a; font-weight:700; font-size:15px; font-family:'Outfit',sans-serif; }
     .drop-zone.over { border-color:rgba(124,111,247,0.5); background:rgba(124,111,247,0.04); color:#9d96ff; }
 
-    .save-btn { background:linear-gradient(135deg,#7c6ff7,#b06cf4); color:#fff; border:none; border-radius:13px; padding:15px 28px; font-family:'Outfit',sans-serif; font-weight:700; font-size:15px; cursor:pointer; transition:all 0.2s; box-shadow:0 4px 20px rgba(124,111,247,0.25); letter-spacing:0.1px; }
+    .save-btn { background:linear-gradient(135deg,#7c6ff7,#b06cf4); color:#fff; border:none; border-radius:13px; padding:16px 30px; font-family:'Outfit',sans-serif; font-weight:700; font-size:16px; cursor:pointer; transition:all 0.2s; box-shadow:0 4px 20px rgba(124,111,247,0.25); letter-spacing:0.1px; }
     .save-btn:hover { transform:translateY(-1px); box-shadow:0 8px 28px rgba(124,111,247,0.4); }
     .save-btn:active { transform:scale(0.98); }
 
-    .outline-btn { background:transparent; color:#505370; border:1.5px solid #1a1d2e; border-radius:13px; padding:15px 22px; font-family:'Outfit',sans-serif; font-weight:600; font-size:14px; cursor:pointer; transition:all 0.2s; }
+    .outline-btn { background:transparent; color:#505370; border:1.5px solid #1a1d2e; border-radius:13px; padding:16px 24px; font-family:'Outfit',sans-serif; font-weight:600; font-size:15px; cursor:pointer; transition:all 0.2s; }
     .outline-btn:hover { border-color:rgba(124,111,247,0.4); color:#9d96ff; }
+
+    .print-btn { background:rgba(255,255,255,0.04); color:#9d96ff; border:1.5px solid rgba(124,111,247,0.25); border-radius:10px; padding:9px 16px; font-family:'Outfit',sans-serif; font-weight:700; font-size:13px; cursor:pointer; transition:all 0.2s; display:flex; align-items:center; gap:7px; }
+    .print-btn:hover { background:rgba(124,111,247,0.1); border-color:rgba(124,111,247,0.5); }
 
     .card { background:rgba(255,255,255,0.022); border:1px solid #111320; border-radius:16px; }
 
-    .field-row { display:flex; justify-content:space-between; align-items:center; padding:13px 0; border-bottom:1px solid rgba(255,255,255,0.04); }
+    .field-row { display:flex; justify-content:space-between; align-items:center; padding:14px 0; border-bottom:1px solid rgba(255,255,255,0.04); }
     .field-row:last-child { border-bottom:none; }
-    .fl { font-size:10px; font-weight:700; letter-spacing:1px; text-transform:uppercase; color:#2a2d48; }
-    .fv { font-size:16px; font-weight:500; color:#d8d8ee; font-family:'JetBrains Mono',monospace; }
+    .fl { font-size:12px; font-weight:700; letter-spacing:1px; text-transform:uppercase; color:#2a2d48; }
+    .fv { font-size:18px; font-weight:500; color:#d8d8ee; font-family:'JetBrains Mono',monospace; }
 
-    .code-chip { display:inline-flex; align-items:center; gap:5px; background:rgba(255,255,255,0.025); border:1.5px solid #131625; border-radius:8px; padding:7px 12px; font-size:11px; font-weight:700; cursor:pointer; transition:all 0.15s; color:#454768; font-family:'Outfit',sans-serif; }
+    .code-chip { display:inline-flex; align-items:center; gap:6px; background:rgba(255,255,255,0.025); border:1.5px solid #131625; border-radius:8px; padding:8px 13px; font-size:12px; font-weight:700; cursor:pointer; transition:all 0.15s; color:#454768; font-family:'Outfit',sans-serif; }
     .code-chip:hover { border-color:rgba(124,111,247,0.45); color:#9d96ff; background:rgba(124,111,247,0.07); }
     .code-chip.sel { border-color:rgba(124,111,247,0.6); background:rgba(124,111,247,0.13); color:#c4bfff; }
 
-    .ie-input { width:100%; background:rgba(255,255,255,0.03); border:1.5px solid #1a1d2e; border-radius:10px; padding:11px 14px; color:#e0e0f0; font-family:'Outfit',sans-serif; font-size:14px; outline:none; transition:border-color 0.15s; }
+    .ie-input { width:100%; background:rgba(255,255,255,0.03); border:1.5px solid #1a1d2e; border-radius:10px; padding:13px 16px; color:#e0e0f0; font-family:'Outfit',sans-serif; font-size:15px; outline:none; transition:border-color 0.15s; }
     .ie-input:focus { border-color:rgba(124,111,247,0.6); }
     .ie-input::placeholder { color:#252840; }
 
-    .history-row { background:rgba(255,255,255,0.018); border:1px solid #111320; border-radius:14px; padding:18px 20px; transition:border-color 0.2s; }
+    .history-row { background:rgba(255,255,255,0.018); border:1px solid #111320; border-radius:14px; padding:20px 22px; transition:border-color 0.2s; }
     .history-row:hover { border-color:#1e2138; background:rgba(255,255,255,0.025); }
 
-    .code-row { background:rgba(255,255,255,0.018); border:1px solid #111320; border-radius:12px; padding:14px 18px; display:flex; align-items:center; gap:14px; transition:border-color 0.2s; }
+    .code-row { background:rgba(255,255,255,0.018); border:1px solid #111320; border-radius:12px; padding:15px 18px; display:flex; align-items:center; gap:14px; transition:border-color 0.2s; }
     .code-row:hover { border-color:#1e2138; }
 
-    .pill-label { font-size:9px; font-weight:800; letter-spacing:1.5px; text-transform:uppercase; color:#2a2d48; margin-bottom:6px; }
-
-    /* Backwards calc banner */
-    .calc-banner { display:flex; align-items:flex-start; gap:12px; padding:14px 16px; border-radius:12px; background:rgba(124,111,247,0.07); border:1px solid rgba(124,111,247,0.18); font-size:13px; color:#9d96ff; }
+    .pill-label { font-size:10px; font-weight:800; letter-spacing:1.5px; text-transform:uppercase; color:#2a2d48; margin-bottom:6px; }
 
     @keyframes spin { to { transform:rotate(360deg); } }
     @keyframes fadeUp { from{opacity:0;transform:translateY(10px)} to{opacity:1;transform:translateY(0)} }
-    @keyframes shimmer { 0%{background-position:200% 0} 100%{background-position:-200% 0} }
     .fu { animation:fadeUp 0.28s ease forwards; }
 
     .glow { position:fixed; width:800px; height:800px; border-radius:50%; background:radial-gradient(circle,rgba(124,111,247,0.06) 0%,transparent 65%); pointer-events:none; top:-300px; right:-300px; z-index:0; }
@@ -75,11 +74,23 @@
     .key-overlay { position:fixed; inset:0; background:rgba(7,9,14,0.97); z-index:1000; display:flex; align-items:center; justify-content:center; padding:24px; }
     .key-card { background:#0c0e1c; border:1px solid rgba(124,111,247,0.2); border-radius:24px; padding:44px 40px; max-width:480px; width:100%; text-align:center; box-shadow:0 40px 80px rgba(0,0,0,0.6); }
 
-    /* Stats bar */
     .stats-bar { display:flex; gap:1px; border-radius:12px; overflow:hidden; border:1px solid #111320; }
-    .stat-item { flex:1; background:rgba(255,255,255,0.018); padding:14px 16px; display:flex; flex-direction:column; gap:4px; }
-    .stat-val { font-size:20px; font-weight:900; letter-spacing:"-0.5px"; font-family:'JetBrains Mono',monospace; background:linear-gradient(90deg,#9d96ff,#c084fc); -webkit-background-clip:text; -webkit-text-fill-color:transparent; }
-    .stat-lbl { font-size:9px; font-weight:700; letter-spacing:1.2px; text-transform:uppercase; color:#2a2d48; }
+    .stat-item { flex:1; background:rgba(255,255,255,0.018); padding:16px 18px; display:flex; flex-direction:column; gap:4px; }
+    .stat-val { font-size:22px; font-weight:900; font-family:'JetBrains Mono',monospace; background:linear-gradient(90deg,#9d96ff,#c084fc); -webkit-background-clip:text; -webkit-text-fill-color:transparent; }
+    .stat-lbl { font-size:10px; font-weight:700; letter-spacing:1.2px; text-transform:uppercase; color:#2a2d48; }
+
+    /* ── PRINT STYLES ── */
+    @media print {
+      body { background: white !important; }
+      .no-print { display: none !important; }
+      .print-only { display: block !important; }
+      @page { margin: 15mm; size: letter; }
+    }
+    .print-only { display: none; }
+
+    /* Print receipt overlay */
+    .print-overlay { position:fixed; inset:0; background:rgba(7,9,14,0.95); z-index:2000; display:flex; align-items:center; justify-content:center; padding:24px; overflow-y:auto; }
+    .print-sheet { background:#fff; border-radius:16px; max-width:580px; width:100%; padding:40px; font-family:'Outfit',sans-serif; color:#1a1a2e; box-shadow:0 40px 80px rgba(0,0,0,0.6); }
   </style>
 </head>
 <body>
@@ -88,7 +99,7 @@
   <script type="text/babel">
     const { useState, useRef, useCallback, useEffect } = React;
 
-    const HST_RATE = 0.13; // Ontario HST
+    const HST_RATE = 0.13;
 
     const DEFAULT_CODES = [
       { code:"5100", label:"Fuel & Gas", keywords:["petro","esso","shell","gas","fuel","canadian tire","pioneer","ultramar","sunoco","bp","irving"] },
@@ -107,31 +118,16 @@
       { code:"6400", label:"Medical & Health", keywords:["pharmacy","shoppers","rexall","medical","dental","health","clinic","doctor","prescription"] },
     ];
 
-    // Load codes from localStorage or fall back to defaults
     function loadCodes() {
-      try {
-        const saved = localStorage.getItem("ie_codes");
-        if (saved) return JSON.parse(saved);
-      } catch(e) {}
+      try { const s = localStorage.getItem("ie_codes"); if (s) return JSON.parse(s); } catch(e) {}
       return DEFAULT_CODES;
     }
-
-    function saveCodes(codes) {
-      try { localStorage.setItem("ie_codes", JSON.stringify(codes)); } catch(e) {}
-    }
-
-    // Load history from localStorage
+    function saveCodes(c) { try { localStorage.setItem("ie_codes", JSON.stringify(c)); } catch(e) {} }
     function loadHistory() {
-      try {
-        const saved = localStorage.getItem("ie_history");
-        if (saved) return JSON.parse(saved);
-      } catch(e) {}
+      try { const s = localStorage.getItem("ie_history"); if (s) return JSON.parse(s); } catch(e) {}
       return [];
     }
-
-    function saveHistory(history) {
-      try { localStorage.setItem("ie_history", JSON.stringify(history)); } catch(e) {}
-    }
+    function saveHistory(h) { try { localStorage.setItem("ie_history", JSON.stringify(h)); } catch(e) {} }
 
     function fileToBase64(file) {
       return new Promise((res, rej) => {
@@ -142,12 +138,21 @@
       });
     }
 
+    // Store image as full data URL for printing
+    function fileToDataURL(file) {
+      return new Promise((res, rej) => {
+        const r = new FileReader();
+        r.onload = () => res(r.result);
+        r.onerror = rej;
+        r.readAsDataURL(file);
+      });
+    }
+
     function formatCAD(n) {
       if (n == null || isNaN(n)) return "—";
       return new Intl.NumberFormat("en-CA", { style:"currency", currency:"CAD" }).format(n);
     }
 
-    // Backwards HST calculation: given only a total, back-calculate pre-tax and HST
     function calcBackwardsHST(total) {
       if (!total) return null;
       const pre = Math.round((total / (1 + HST_RATE)) * 100) / 100;
@@ -155,67 +160,205 @@
       return { pre, hst };
     }
 
-    function Logo({ size=34 }) {
+    // ─── PRINT RECEIPT COMPONENT ──────────────────────────────────────────
+    function PrintReceipt({ record, onClose }) {
+      const ref = useRef();
+
+      const doPrint = () => {
+        const content = ref.current.innerHTML;
+        const win = window.open("", "_blank", "width=700,height=900");
+        win.document.write(`
+          <!DOCTYPE html><html><head>
+          <title>Invoice Expert — ${record.vendor || "Receipt"}</title>
+          <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700;800;900&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet"/>
+          <style>
+            * { box-sizing:border-box; margin:0; padding:0; }
+            body { font-family:'Outfit',sans-serif; background:#fff; color:#1a1a2e; padding:20mm; }
+            @page { margin:15mm; size:letter; }
+            @media print { body { padding:0; } }
+          </style>
+          </head><body>${content}</body></html>
+        `);
+        win.document.close();
+        win.focus();
+        setTimeout(() => { win.print(); }, 600);
+      };
+
+      const r = record;
+      const scannedDate = new Date(r.timestamp).toLocaleDateString("en-CA", { year:"numeric", month:"long", day:"numeric" });
+      const refNum = `IE-${r.id.toString().slice(-6)}`;
+
       return (
-        <svg width={size} height={size} viewBox="0 0 34 34" fill="none">
-          <rect width="34" height="34" rx="9" fill="url(#lg)"/>
-          <path d="M10 9h10.5L24 12.5V25H10V9z" fill="white" fillOpacity="0.12" stroke="white" strokeOpacity="0.35" strokeWidth="1.2"/>
-          <path d="M20.5 9v3.5H24" stroke="white" strokeOpacity="0.35" strokeWidth="1.2"/>
-          <path d="M13 15h8M13 18.5h8M13 22h5" stroke="white" strokeWidth="1.6" strokeLinecap="round"/>
-          <defs>
-            <linearGradient id="lg" x1="0" y1="0" x2="34" y2="34" gradientUnits="userSpaceOnUse">
-              <stop stopColor="#7c6ff7"/><stop offset="1" stopColor="#b06cf4"/>
-            </linearGradient>
-          </defs>
-        </svg>
+        <div className="print-overlay no-print" onClick={e => e.target===e.currentTarget && onClose()}>
+          <div style={{ maxWidth:620, width:"100%", display:"flex", flexDirection:"column", gap:14 }}>
+
+            {/* Action bar */}
+            <div style={{ display:"flex", gap:12, justifyContent:"flex-end" }}>
+              <button className="outline-btn" style={{ padding:"10px 20px", fontSize:14 }} onClick={onClose}>✕ Close</button>
+              <button className="save-btn" style={{ padding:"10px 24px", fontSize:14 }} onClick={doPrint}>🖨 Print / Save PDF</button>
+            </div>
+
+            {/* The receipt sheet */}
+            <div ref={ref} className="print-sheet">
+
+              {/* Header */}
+              <div style={{ borderBottom:"3px solid #7c6ff7", paddingBottom:20, marginBottom:24, display:"flex", justifyContent:"space-between", alignItems:"flex-start" }}>
+                <div>
+                  <div style={{ fontSize:22, fontWeight:900, color:"#7c6ff7", letterSpacing:"-0.5px" }}>Invoice<span style={{ color:"#1a1a2e" }}>Expert</span></div>
+                  <div style={{ fontSize:11, fontWeight:700, letterSpacing:"2px", color:"#999", textTransform:"uppercase", marginTop:3 }}>Expense Record</div>
+                </div>
+                <div style={{ textAlign:"right" }}>
+                  <div style={{ fontSize:12, fontWeight:700, color:"#999", letterSpacing:"1px", textTransform:"uppercase" }}>Reference</div>
+                  <div style={{ fontSize:18, fontWeight:800, color:"#1a1a2e", fontFamily:"'JetBrains Mono',monospace" }}>{refNum}</div>
+                  <div style={{ fontSize:12, color:"#999", marginTop:2 }}>Scanned {scannedDate}</div>
+                </div>
+              </div>
+
+              {/* Vendor + description */}
+              <div style={{ marginBottom:24 }}>
+                <div style={{ fontSize:11, fontWeight:700, letterSpacing:"1.5px", textTransform:"uppercase", color:"#999", marginBottom:6 }}>Vendor</div>
+                <div style={{ fontSize:28, fontWeight:900, color:"#1a1a2e", letterSpacing:"-0.5px" }}>{r.vendor || "Unknown Vendor"}</div>
+                {r.date && <div style={{ fontSize:14, color:"#666", marginTop:4 }}>{r.date}</div>}
+                {r.description && <div style={{ fontSize:14, color:"#444", marginTop:6, lineHeight:1.5 }}>{r.description}</div>}
+              </div>
+
+              {/* Account code stamp */}
+              <div style={{ background:"#f0eeff", border:"2px solid #7c6ff7", borderRadius:12, padding:"14px 20px", marginBottom:24, display:"flex", alignItems:"center", gap:14 }}>
+                <div style={{ background:"#7c6ff7", borderRadius:8, padding:"6px 14px", color:"#fff", fontFamily:"'JetBrains Mono',monospace", fontWeight:700, fontSize:16, flexShrink:0 }}>
+                  {r.selected_code}
+                </div>
+                <div>
+                  <div style={{ fontSize:16, fontWeight:800, color:"#1a1a2e" }}>{r.selected_label}</div>
+                  <div style={{ fontSize:12, color:"#7c6ff7", fontWeight:600, marginTop:2 }}>Account Code</div>
+                </div>
+                {r.wasCalculated && (
+                  <div style={{ marginLeft:"auto", fontSize:11, fontWeight:700, color:"#7c6ff7", background:"#e8e4ff", borderRadius:6, padding:"4px 10px", letterSpacing:"0.5px" }}>HST CALCULATED</div>
+                )}
+              </div>
+
+              {/* Amounts table */}
+              <table style={{ width:"100%", borderCollapse:"collapse", marginBottom:24, fontSize:15 }}>
+                <thead>
+                  <tr style={{ borderBottom:"2px solid #eee" }}>
+                    <th style={{ textAlign:"left", padding:"8px 0", fontSize:11, fontWeight:700, letterSpacing:"1px", textTransform:"uppercase", color:"#999" }}>Description</th>
+                    <th style={{ textAlign:"right", padding:"8px 0", fontSize:11, fontWeight:700, letterSpacing:"1px", textTransform:"uppercase", color:"#999" }}>Amount</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {r.subtotal != null && (
+                    <tr style={{ borderBottom:"1px solid #f0f0f0" }}>
+                      <td style={{ padding:"10px 0", color:"#333" }}>Pre-Tax Subtotal{r.wasCalculated?" (calculated at 13% HST)":""}</td>
+                      <td style={{ padding:"10px 0", textAlign:"right", fontFamily:"'JetBrains Mono',monospace", fontWeight:600 }}>{formatCAD(r.subtotal)}</td>
+                    </tr>
+                  )}
+                  {r.hst != null && (
+                    <tr style={{ borderBottom:"1px solid #f0f0f0" }}>
+                      <td style={{ padding:"10px 0", color:"#333" }}>HST{r.wasCalculated?" (calculated)":""}</td>
+                      <td style={{ padding:"10px 0", textAlign:"right", fontFamily:"'JetBrains Mono',monospace", fontWeight:600 }}>{formatCAD(r.hst)}</td>
+                    </tr>
+                  )}
+                  {r.gst != null && (
+                    <tr style={{ borderBottom:"1px solid #f0f0f0" }}>
+                      <td style={{ padding:"10px 0", color:"#333" }}>GST</td>
+                      <td style={{ padding:"10px 0", textAlign:"right", fontFamily:"'JetBrains Mono',monospace", fontWeight:600 }}>{formatCAD(r.gst)}</td>
+                    </tr>
+                  )}
+                  {r.pst != null && (
+                    <tr style={{ borderBottom:"1px solid #f0f0f0" }}>
+                      <td style={{ padding:"10px 0", color:"#333" }}>PST</td>
+                      <td style={{ padding:"10px 0", textAlign:"right", fontFamily:"'JetBrains Mono',monospace", fontWeight:600 }}>{formatCAD(r.pst)}</td>
+                    </tr>
+                  )}
+                  <tr style={{ borderTop:"2px solid #1a1a2e" }}>
+                    <td style={{ padding:"12px 0", fontWeight:800, fontSize:17, color:"#1a1a2e" }}>TOTAL</td>
+                    <td style={{ padding:"12px 0", textAlign:"right", fontFamily:"'JetBrains Mono',monospace", fontWeight:900, fontSize:22, color:"#7c6ff7" }}>{formatCAD(r.total)}</td>
+                  </tr>
+                </tbody>
+              </table>
+
+              {/* Original receipt image */}
+              {r.imageDataUrl && r.imageDataUrl !== "pdf" && (
+                <div style={{ marginBottom:24 }}>
+                  <div style={{ fontSize:11, fontWeight:700, letterSpacing:"1.5px", textTransform:"uppercase", color:"#999", marginBottom:10 }}>Original Receipt</div>
+                  <img src={r.imageDataUrl} alt="Original receipt"
+                    style={{ width:"100%", maxHeight:500, objectFit:"contain", border:"1px solid #eee", borderRadius:8, display:"block" }}/>
+                </div>
+              )}
+              {r.imageDataUrl === "pdf" && (
+                <div style={{ marginBottom:24, background:"#f8f8f8", border:"1px solid #eee", borderRadius:8, padding:"20px", textAlign:"center" }}>
+                  <div style={{ fontSize:32, marginBottom:8 }}>📄</div>
+                  <div style={{ fontSize:13, color:"#999", fontWeight:600 }}>Original invoice was a PDF — attach separately</div>
+                  <div style={{ fontSize:12, color:"#bbb", marginTop:4 }}>File: {r.filename}</div>
+                </div>
+              )}
+
+              {/* Notes */}
+              {r.notes && (
+                <div style={{ background:"#fff8e6", border:"1px solid #ffd666", borderRadius:8, padding:"12px 16px", marginBottom:24, fontSize:13, color:"#7a5800" }}>
+                  ⚠ {r.notes}
+                </div>
+              )}
+
+              {/* Footer */}
+              <div style={{ borderTop:"1px solid #eee", paddingTop:16, display:"flex", justifyContent:"space-between", alignItems:"center" }}>
+                <div style={{ fontSize:11, color:"#bbb" }}>Generated by Invoice Expert · invoiceexpert.ca</div>
+                <div style={{ fontSize:11, color:"#bbb", fontFamily:"'JetBrains Mono',monospace" }}>{refNum}</div>
+              </div>
+            </div>
+          </div>
+        </div>
       );
     }
 
-    function ScanIcon() { return <svg width="17" height="17" viewBox="0 0 24 24" fill="none"><path d="M4 8V6a2 2 0 012-2h2M4 16v2a2 2 0 002 2h2M16 4h2a2 2 0 012 2v2M16 20h2a2 2 0 002-2v-2" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round"/><rect x="8" y="8" width="8" height="8" rx="1" stroke="currentColor" strokeWidth="1.8"/></svg>; }
-    function HistoryIcon() { return <svg width="17" height="17" viewBox="0 0 24 24" fill="none"><path d="M12 8v4l3 3" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"/><path d="M3.05 11a9 9 0 109.1-7.93" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round"/><path d="M3 4v4h4" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"/></svg>; }
-    function CodesIcon() { return <svg width="17" height="17" viewBox="0 0 24 24" fill="none"><path d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round"/><rect x="9" y="3" width="6" height="4" rx="1" stroke="currentColor" strokeWidth="1.8"/><path d="M9 12h6M9 16h4" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round"/></svg>; }
-
+    // ─── MATH CHECK ───────────────────────────────────────────────────────
     function MathCheck({ pre, hst, total, wasCalculated }) {
       if (pre == null || hst == null || total == null) return null;
       const calc = Math.round((pre + hst) * 100) / 100;
       const ok = Math.abs(calc - total) < 0.02;
       if (wasCalculated) {
         return (
-          <div style={{ display:"flex", alignItems:"flex-start", gap:10, padding:"12px 16px", borderRadius:10, background:"rgba(124,111,247,0.07)", border:"1px solid rgba(124,111,247,0.2)", fontSize:13, color:"#9d96ff", fontWeight:600 }}>
+          <div style={{ display:"flex", alignItems:"flex-start", gap:10, padding:"13px 16px", borderRadius:10, background:"rgba(124,111,247,0.07)", border:"1px solid rgba(124,111,247,0.2)", fontSize:14, color:"#9d96ff", fontWeight:600 }}>
             <span style={{ fontSize:18, flexShrink:0 }}>🧮</span>
-            <span>HST calculated backwards from total — Pre-tax {formatCAD(pre)} + HST {formatCAD(hst)} = {formatCAD(total)} (at 13% Ontario HST)</span>
+            <span>HST calculated backwards — Pre-tax {formatCAD(pre)} + HST {formatCAD(hst)} = {formatCAD(total)} (Ontario 13%)</span>
           </div>
         );
       }
       return (
-        <div style={{ display:"flex", alignItems:"center", gap:10, padding:"12px 16px", borderRadius:10, background:ok?"rgba(52,211,153,0.08)":"rgba(248,113,113,0.08)", border:`1px solid ${ok?"rgba(52,211,153,0.3)":"rgba(248,113,113,0.3)"}`, fontSize:13, color:ok?"#34d399":"#f87171", fontWeight:600 }}>
+        <div style={{ display:"flex", alignItems:"center", gap:10, padding:"13px 16px", borderRadius:10, background:ok?"rgba(52,211,153,0.08)":"rgba(248,113,113,0.08)", border:`1px solid ${ok?"rgba(52,211,153,0.3)":"rgba(248,113,113,0.3)"}`, fontSize:14, color:ok?"#34d399":"#f87171", fontWeight:600 }}>
           <span style={{ fontSize:18, flexShrink:0 }}>{ok?"✓":"⚠"}</span>
           <span>{ok?`Math checks out — ${formatCAD(pre)} + ${formatCAD(hst)} = ${formatCAD(total)}`:`Math mismatch — ${formatCAD(pre)} + ${formatCAD(hst)} = ${formatCAD(calc)}, but invoice says ${formatCAD(total)}`}</span>
         </div>
       );
     }
 
+    // ─── API KEY PROMPT ───────────────────────────────────────────────────
     function ApiKeyPrompt({ onSave }) {
       const [val, setVal] = useState("");
       return (
         <div className="key-overlay">
           <div className="key-card">
-            <Logo size={56}/>
-            <div style={{ marginTop:22, fontSize:28, fontWeight:900, letterSpacing:"-0.5px", color:"#e8e8f0", lineHeight:1.1 }}>
+            <svg width="56" height="56" viewBox="0 0 34 34" fill="none">
+              <rect width="34" height="34" rx="9" fill="url(#lgs)"/>
+              <path d="M10 9h10.5L24 12.5V25H10V9z" fill="white" fillOpacity="0.12" stroke="white" strokeOpacity="0.35" strokeWidth="1.2"/>
+              <path d="M20.5 9v3.5H24" stroke="white" strokeOpacity="0.35" strokeWidth="1.2"/>
+              <path d="M13 15h8M13 18.5h8M13 22h5" stroke="white" strokeWidth="1.6" strokeLinecap="round"/>
+              <defs><linearGradient id="lgs" x1="0" y1="0" x2="34" y2="34" gradientUnits="userSpaceOnUse"><stop stopColor="#7c6ff7"/><stop offset="1" stopColor="#b06cf4"/></linearGradient></defs>
+            </svg>
+            <div style={{ marginTop:22, fontSize:30, fontWeight:900, letterSpacing:"-0.5px", color:"#e8e8f0", lineHeight:1.1 }}>
               Invoice<span style={{ background:"linear-gradient(90deg,#9d96ff,#c084fc)", WebkitBackgroundClip:"text", WebkitTextFillColor:"transparent" }}>Expert</span>
             </div>
-            <div style={{ color:"#2a2d48", fontSize:13, marginTop:8, lineHeight:1.6, fontWeight:500 }}>AI-Powered Invoice Scanning · Canada</div>
+            <div style={{ color:"#2a2d48", fontSize:14, marginTop:8, lineHeight:1.6, fontWeight:500 }}>AI-Powered Invoice Scanning · Canada</div>
             <div style={{ height:1, background:"linear-gradient(90deg,transparent,rgba(124,111,247,0.3),transparent)", margin:"28px 0 24px" }}/>
-            <div style={{ marginBottom:10, fontSize:11, fontWeight:700, letterSpacing:"1px", textTransform:"uppercase", color:"#3a3d58", textAlign:"left" }}>Your Claude API Key</div>
+            <div style={{ marginBottom:10, fontSize:12, fontWeight:700, letterSpacing:"1px", textTransform:"uppercase", color:"#3a3d58", textAlign:"left" }}>Your Claude API Key</div>
             <input className="ie-input" type="password" placeholder="sk-ant-api03-..." value={val}
               onChange={e => setVal(e.target.value)}
               onKeyDown={e => e.key==="Enter" && val.startsWith("sk-") && onSave(val.trim())}
               style={{ marginBottom:12 }}/>
-            <div style={{ fontSize:11, color:"#1e2138", marginBottom:22, textAlign:"left", lineHeight:1.7 }}>
+            <div style={{ fontSize:12, color:"#1e2138", marginBottom:22, textAlign:"left", lineHeight:1.7 }}>
               Stored only in this browser — never shared. Get one at{" "}
               <a href="https://console.anthropic.com" target="_blank" style={{ color:"#7c6ff7", textDecoration:"none", fontWeight:700 }}>console.anthropic.com</a>
             </div>
-            <button className="save-btn" style={{ width:"100%", fontSize:16, padding:"16px" }} onClick={() => val.startsWith("sk-") && onSave(val.trim())}>
+            <button className="save-btn" style={{ width:"100%", fontSize:17, padding:"17px" }} onClick={() => val.startsWith("sk-") && onSave(val.trim())}>
               Let's Go →
             </button>
           </div>
@@ -223,6 +366,23 @@
       );
     }
 
+    function Logo({ size=36 }) {
+      return (
+        <svg width={size} height={size} viewBox="0 0 34 34" fill="none">
+          <rect width="34" height="34" rx="9" fill="url(#lgm)"/>
+          <path d="M10 9h10.5L24 12.5V25H10V9z" fill="white" fillOpacity="0.12" stroke="white" strokeOpacity="0.35" strokeWidth="1.2"/>
+          <path d="M20.5 9v3.5H24" stroke="white" strokeOpacity="0.35" strokeWidth="1.2"/>
+          <path d="M13 15h8M13 18.5h8M13 22h5" stroke="white" strokeWidth="1.6" strokeLinecap="round"/>
+          <defs><linearGradient id="lgm" x1="0" y1="0" x2="34" y2="34" gradientUnits="userSpaceOnUse"><stop stopColor="#7c6ff7"/><stop offset="1" stopColor="#b06cf4"/></linearGradient></defs>
+        </svg>
+      );
+    }
+
+    function ScanIcon() { return <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M4 8V6a2 2 0 012-2h2M4 16v2a2 2 0 002 2h2M16 4h2a2 2 0 012 2v2M16 20h2a2 2 0 002-2v-2" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round"/><rect x="8" y="8" width="8" height="8" rx="1" stroke="currentColor" strokeWidth="1.8"/></svg>; }
+    function HistoryIcon() { return <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M12 8v4l3 3" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"/><path d="M3.05 11a9 9 0 109.1-7.93" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round"/><path d="M3 4v4h4" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"/></svg>; }
+    function CodesIcon() { return <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round"/><rect x="9" y="3" width="6" height="4" rx="1" stroke="currentColor" strokeWidth="1.8"/><path d="M9 12h6M9 16h4" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round"/></svg>; }
+
+    // ─── MAIN APP ─────────────────────────────────────────────────────────
     function App() {
       const [apiKey, setApiKey]             = useState(() => localStorage.getItem("ie_api_key") || "");
       const [codes, setCodes]               = useState(loadCodes);
@@ -236,14 +396,11 @@
       const [history, setHistory]           = useState(loadHistory);
       const [settingsCode, setSettingsCode] = useState({ code:"", label:"", keywords:"" });
       const [editingIdx, setEditingIdx]     = useState(null);
-      const [resetConfirm, setResetConfirm] = useState(false);
+      const [printRecord, setPrintRecord]   = useState(null);
       const fileRef   = useRef();
       const uploadRef = useRef();
 
-      // Save codes to localStorage whenever they change
       useEffect(() => { saveCodes(codes); }, [codes]);
-
-      // Save history to localStorage whenever it changes
       useEffect(() => { saveHistory(history); }, [history]);
 
       const saveKey = (k) => { localStorage.setItem("ie_api_key", k); setApiKey(k); };
@@ -279,6 +436,15 @@
 
           setLoadingMsg("Reading your invoice…"); setLoadingStep(1);
           const b64 = await fileToBase64(file);
+
+          // Also store full data URL for printing (images only, not PDF)
+          let imageDataUrl = null;
+          if (isImage) {
+            imageDataUrl = await fileToDataURL(file);
+          } else {
+            imageDataUrl = "pdf";
+          }
+
           const codesCtx = codes.map(c => `${c.code} — ${c.label}`).join("\n");
 
           setLoadingMsg("Extracting amounts…"); setLoadingStep(2);
@@ -288,24 +454,18 @@
               isImage
                 ? { type:"image", source:{ type:"base64", media_type:file.type, data:b64 } }
                 : { type:"document", source:{ type:"base64", media_type:"application/pdf", data:b64 } },
-              { type:"text", text:`You are an invoice parser for a Canadian small business expense app. Return ONLY valid JSON, no markdown:\n\n{"vendor":"string","date":"string or null","description":"string","subtotal":number_or_null,"hst":number_or_null,"gst":number_or_null,"pst":number_or_null,"total_tax":number_or_null,"total":number_or_null,"currency":"CAD or USD","notes":"string or null"}\n\nRules: subtotal=pre-tax amount before any tax. total_tax=all tax combined. hst=HST if shown separately. All amounts as plain numbers, no $ signs. Use null if a field is not visible on the invoice.` }
+              { type:"text", text:`You are an invoice parser for a Canadian small business expense app. Return ONLY valid JSON, no markdown:\n\n{"vendor":"string","date":"string or null","description":"string","subtotal":number_or_null,"hst":number_or_null,"gst":number_or_null,"pst":number_or_null,"total_tax":number_or_null,"total":number_or_null,"currency":"CAD or USD","notes":"string or null"}\n\nRules: subtotal=pre-tax amount before any tax. total_tax=all tax combined. All amounts as plain numbers. null if not visible.` }
             ]}]
           });
           const extractText = extractData.content?.find(b => b.type==="text")?.text || "{}";
           let parsed;
           try { parsed = JSON.parse(extractText.replace(/```json|```/g,"").trim()); } catch { parsed = {}; }
 
-          // ── BACKWARDS HST CALCULATION ──────────────────────────────────
-          // If we have a total but no subtotal/HST breakdown, calculate backwards
+          // Backwards HST calc
           let wasCalculated = false;
           if (parsed.total && !parsed.subtotal && !parsed.hst && !parsed.total_tax) {
             const calc = calcBackwardsHST(parsed.total);
-            if (calc) {
-              parsed.subtotal   = calc.pre;
-              parsed.hst        = calc.hst;
-              parsed.total_tax  = calc.hst;
-              wasCalculated     = true;
-            }
+            if (calc) { parsed.subtotal = calc.pre; parsed.hst = calc.hst; parsed.total_tax = calc.hst; wasCalculated = true; }
           }
 
           setLoadingMsg("Matching account code…"); setLoadingStep(3);
@@ -318,7 +478,7 @@
           try { cp = JSON.parse(codeText.replace(/```json|```/g,"").trim()); }
           catch { cp = { suggested_code:"", suggested_label:"Uncategorized", confidence:"low", reason:"" }; }
 
-          setResult({ id:Date.now(), timestamp:new Date().toISOString(), filename:file.name, ...parsed, ...cp, selected_code:cp.suggested_code, selected_label:cp.suggested_label, wasCalculated });
+          setResult({ id:Date.now(), timestamp:new Date().toISOString(), filename:file.name, imageDataUrl, ...parsed, ...cp, selected_code:cp.suggested_code, selected_label:cp.suggested_label, wasCalculated });
         } catch(err) {
           alert("Something went wrong.\n\n" + err.message);
         } finally {
@@ -348,7 +508,6 @@
         a.click();
       };
 
-      // Total spend this session
       const totalSpend = history.reduce((sum, r) => sum + (r.total || 0), 0);
       const totalTax   = history.reduce((sum, r) => sum + (r.total_tax || r.hst || 0), 0);
 
@@ -358,15 +517,18 @@
         <div style={{ minHeight:"100vh", background:"#07090e", color:"#e8e8f0", fontFamily:"'Outfit',sans-serif" }}>
           <div className="glow"/><div className="glow2"/>
 
+          {/* Print receipt overlay */}
+          {printRecord && <PrintReceipt record={printRecord} onClose={() => setPrintRecord(null)}/>}
+
           {/* ── HEADER ── */}
-          <header style={{ position:"sticky", top:0, zIndex:100, background:"rgba(7,9,14,0.9)", backdropFilter:"blur(28px)", borderBottom:"1px solid rgba(255,255,255,0.04)", padding:"0 24px", display:"flex", alignItems:"center", justifyContent:"space-between", height:66 }}>
+          <header className="no-print" style={{ position:"sticky", top:0, zIndex:100, background:"rgba(7,9,14,0.9)", backdropFilter:"blur(28px)", borderBottom:"1px solid rgba(255,255,255,0.04)", padding:"0 24px", display:"flex", alignItems:"center", justifyContent:"space-between", height:70 }}>
             <div style={{ display:"flex", alignItems:"center", gap:12 }}>
-              <Logo size={36}/>
+              <Logo size={38}/>
               <div>
-                <div style={{ fontWeight:900, fontSize:17, letterSpacing:"-0.5px", lineHeight:1.1 }}>
+                <div style={{ fontWeight:900, fontSize:19, letterSpacing:"-0.5px", lineHeight:1.1 }}>
                   Invoice<span style={{ background:"linear-gradient(90deg,#9d96ff,#c084fc)", WebkitBackgroundClip:"text", WebkitTextFillColor:"transparent" }}>Expert</span>
                 </div>
-                <div style={{ fontSize:8, fontWeight:700, letterSpacing:"2.5px", color:"#1a1d35", textTransform:"uppercase", marginTop:1 }}>AI-POWERED · CANADIAN</div>
+                <div style={{ fontSize:9, fontWeight:700, letterSpacing:"2.5px", color:"#1a1d35", textTransform:"uppercase", marginTop:1 }}>AI-POWERED · CANADIAN</div>
               </div>
             </div>
             <nav style={{ display:"flex", gap:2 }}>
@@ -378,21 +540,21 @@
                 <button key={id} className={`nav-pill${page===id?" active":""}`} onClick={() => setPage(id)}>
                   <Icon/>
                   {label}
-                  {badge ? <span style={{ position:"absolute", top:5, right:10, background:"#7c6ff7", color:"#fff", borderRadius:"50%", width:15, height:15, fontSize:8, fontWeight:900, display:"flex", alignItems:"center", justifyContent:"center" }}>{badge}</span> : null}
+                  {badge ? <span style={{ position:"absolute", top:5, right:10, background:"#7c6ff7", color:"#fff", borderRadius:"50%", width:16, height:16, fontSize:9, fontWeight:900, display:"flex", alignItems:"center", justifyContent:"center" }}>{badge}</span> : null}
                 </button>
               ))}
             </nav>
           </header>
 
-          <main style={{ maxWidth:680, margin:"0 auto", padding:"40px 24px 60px", position:"relative", zIndex:1 }}>
+          <main style={{ maxWidth:700, margin:"0 auto", padding:"44px 24px 70px", position:"relative", zIndex:1 }}>
 
-            {/* ══════════════════ SCAN ══════════════════ */}
+            {/* ══════════════ SCAN ══════════════ */}
             {page==="scan" && (
-              <div className="fu" style={{ display:"flex", flexDirection:"column", gap:26 }}>
+              <div className="fu" style={{ display:"flex", flexDirection:"column", gap:28 }}>
                 <div>
                   <div className="pill-label">New Scan</div>
-                  <h1 style={{ fontSize:32, fontWeight:900, letterSpacing:"-1px", lineHeight:1.05 }}>Scan an Invoice</h1>
-                  <p style={{ color:"#2a2d48", fontSize:14, marginTop:10, lineHeight:1.7, maxWidth:480 }}>
+                  <h1 style={{ fontSize:36, fontWeight:900, letterSpacing:"-1px", lineHeight:1.05 }}>Scan an Invoice</h1>
+                  <p style={{ color:"#2a2d48", fontSize:16, marginTop:10, lineHeight:1.7 }}>
                     Take a photo or upload a file — we'll extract the amounts and suggest the right account code automatically.
                   </p>
                 </div>
@@ -403,62 +565,62 @@
                 {preview && (
                   <div className="fu" style={{ position:"relative", borderRadius:18, overflow:"hidden", border:"1px solid #131625", background:"#07090f" }}>
                     {preview==="pdf" ? (
-                      <div style={{ padding:"44px 24px", textAlign:"center" }}>
-                        <div style={{ fontSize:56, marginBottom:12 }}>📄</div>
-                        <div style={{ fontWeight:800, fontSize:17, color:"#9d96ff" }}>{file?.name}</div>
-                        <div style={{ color:"#2a2d48", fontSize:13, marginTop:5 }}>PDF ready to scan</div>
+                      <div style={{ padding:"48px 24px", textAlign:"center" }}>
+                        <div style={{ fontSize:60, marginBottom:12 }}>📄</div>
+                        <div style={{ fontWeight:800, fontSize:18, color:"#9d96ff" }}>{file?.name}</div>
+                        <div style={{ color:"#2a2d48", fontSize:14, marginTop:5 }}>PDF ready to scan</div>
                       </div>
                     ) : (
-                      <img src={preview} alt="Invoice" style={{ width:"100%", maxHeight:440, objectFit:"contain", display:"block" }}/>
+                      <img src={preview} alt="Invoice" style={{ width:"100%", maxHeight:460, objectFit:"contain", display:"block" }}/>
                     )}
-                    <button onClick={() => { setFile(null); setPreview(null); setResult(null); }} style={{ position:"absolute", top:12, right:12, background:"rgba(7,9,14,0.9)", border:"1px solid #1e2138", borderRadius:"50%", width:34, height:34, color:"#9d96ff", cursor:"pointer", fontSize:15, display:"flex", alignItems:"center", justifyContent:"center" }}>✕</button>
-                    <div style={{ position:"absolute", bottom:12, left:12, background:"rgba(7,9,14,0.85)", borderRadius:6, padding:"4px 10px", fontSize:10, color:"#383b5a", fontWeight:600 }}>{file?.name}</div>
+                    <button onClick={() => { setFile(null); setPreview(null); setResult(null); }} style={{ position:"absolute", top:12, right:12, background:"rgba(7,9,14,0.9)", border:"1px solid #1e2138", borderRadius:"50%", width:36, height:36, color:"#9d96ff", cursor:"pointer", fontSize:16, display:"flex", alignItems:"center", justifyContent:"center" }}>✕</button>
+                    <div style={{ position:"absolute", bottom:12, left:12, background:"rgba(7,9,14,0.85)", borderRadius:6, padding:"5px 11px", fontSize:11, color:"#383b5a", fontWeight:600 }}>{file?.name}</div>
                   </div>
                 )}
 
                 {!preview && (
-                  <div style={{ display:"flex", flexDirection:"column", gap:10 }}>
+                  <div style={{ display:"flex", flexDirection:"column", gap:12 }}>
                     <button className="hero-btn" onClick={() => fileRef.current.click()}>
-                      <div style={{ width:54, height:54, borderRadius:14, background:"rgba(255,255,255,0.14)", display:"flex", alignItems:"center", justifyContent:"center", fontSize:28, flexShrink:0 }}>📷</div>
+                      <div style={{ width:58, height:58, borderRadius:14, background:"rgba(255,255,255,0.14)", display:"flex", alignItems:"center", justifyContent:"center", fontSize:30, flexShrink:0 }}>📷</div>
                       <div style={{ textAlign:"left", flex:1 }}>
-                        <div style={{ fontWeight:900, fontSize:18, color:"#fff", letterSpacing:"-0.3px" }}>Take a Photo</div>
-                        <div style={{ fontSize:13, color:"rgba(255,255,255,0.5)", marginTop:3, fontWeight:400 }}>Opens your rear camera — point it right at the invoice</div>
+                        <div style={{ fontWeight:900, fontSize:20, color:"#fff", letterSpacing:"-0.3px" }}>Take a Photo</div>
+                        <div style={{ fontSize:14, color:"rgba(255,255,255,0.5)", marginTop:3, fontWeight:400 }}>Opens your rear camera — point it right at the invoice</div>
                       </div>
-                      <div style={{ color:"rgba(255,255,255,0.3)", fontSize:22 }}>›</div>
+                      <div style={{ color:"rgba(255,255,255,0.3)", fontSize:24 }}>›</div>
                     </button>
-                    <div style={{ display:"flex", gap:10 }}>
+                    <div style={{ display:"flex", gap:12 }}>
                       <button className="ghost-btn" onClick={() => uploadRef.current.click()}>
-                        <span style={{ fontSize:28 }}>📁</span>
+                        <span style={{ fontSize:30 }}>📁</span>
                         <span>Upload File</span>
-                        <span style={{ fontSize:10, color:"#252840", fontWeight:600 }}>JPG · PNG · PDF</span>
+                        <span style={{ fontSize:11, color:"#252840", fontWeight:600 }}>JPG · PNG · PDF</span>
                       </button>
                       <div className="drop-zone"
                         onDragOver={e => { e.preventDefault(); e.currentTarget.classList.add("over"); }}
                         onDragLeave={e => e.currentTarget.classList.remove("over")}
                         onDrop={e => { e.currentTarget.classList.remove("over"); handleDrop(e); }}>
-                        <span style={{ fontSize:28 }}>⬇</span>
+                        <span style={{ fontSize:30 }}>⬇</span>
                         <span>Drag & Drop</span>
-                        <span style={{ fontSize:10, color:"#252840", fontWeight:600 }}>Drop file here</span>
+                        <span style={{ fontSize:11, color:"#252840", fontWeight:600 }}>Drop file here</span>
                       </div>
                     </div>
                   </div>
                 )}
 
                 {file && !loading && !result && (
-                  <button className="save-btn fu" onClick={scanInvoice} style={{ width:"100%", fontSize:16, padding:"17px 28px" }}>
+                  <button className="save-btn fu" onClick={scanInvoice} style={{ width:"100%", fontSize:17, padding:"18px 28px" }}>
                     ✦ &nbsp; Scan This Invoice
                   </button>
                 )}
 
                 {loading && (
-                  <div className="fu card" style={{ padding:36, textAlign:"center" }}>
-                    <div style={{ width:52, height:52, borderRadius:"50%", border:"3px solid #131625", borderTopColor:"#9d96ff", animation:"spin 0.75s linear infinite", margin:"0 auto 20px" }}/>
-                    <div style={{ fontWeight:800, fontSize:16, color:"#c4bfff" }}>{loadingMsg}</div>
-                    <div style={{ color:"#1e2138", fontSize:12, marginTop:5, fontWeight:600, letterSpacing:"0.3px" }}>About 10–15 seconds</div>
+                  <div className="fu card" style={{ padding:38, textAlign:"center" }}>
+                    <div style={{ width:54, height:54, borderRadius:"50%", border:"3px solid #131625", borderTopColor:"#9d96ff", animation:"spin 0.75s linear infinite", margin:"0 auto 20px" }}/>
+                    <div style={{ fontWeight:800, fontSize:18, color:"#c4bfff" }}>{loadingMsg}</div>
+                    <div style={{ color:"#1e2138", fontSize:13, marginTop:5, fontWeight:600 }}>About 10–15 seconds</div>
                     <div style={{ height:3, background:"#0c0e1c", borderRadius:99, overflow:"hidden", marginTop:22 }}>
                       <div style={{ height:"100%", borderRadius:99, background:"linear-gradient(90deg,#7c6ff7,#b06cf4)", width:`${(loadingStep/3)*100}%`, transition:"width 0.6s ease" }}/>
                     </div>
-                    <div style={{ display:"flex", justifyContent:"space-between", marginTop:8, fontSize:9, fontWeight:700, letterSpacing:"1px", textTransform:"uppercase" }}>
+                    <div style={{ display:"flex", justifyContent:"space-between", marginTop:8, fontSize:10, fontWeight:700, letterSpacing:"1px", textTransform:"uppercase" }}>
                       {["Reading","Extracting","Coding"].map((s,i) => (
                         <span key={s} style={{ color:loadingStep>i?"#9d96ff":"#1e2138" }}>{s}</span>
                       ))}
@@ -468,56 +630,47 @@
 
                 {result && (
                   <div className="fu" style={{ display:"flex", flexDirection:"column", gap:14 }}>
-
-                    {/* Vendor card */}
-                    <div style={{ background:"linear-gradient(135deg,rgba(124,111,247,0.08),rgba(176,108,244,0.04))", border:"1px solid rgba(124,111,247,0.15)", borderRadius:18, padding:"22px 24px" }}>
+                    <div style={{ background:"linear-gradient(135deg,rgba(124,111,247,0.08),rgba(176,108,244,0.04))", border:"1px solid rgba(124,111,247,0.15)", borderRadius:18, padding:"24px 26px" }}>
                       <div className="pill-label">Vendor</div>
-                      <div style={{ fontSize:24, fontWeight:900, letterSpacing:"-0.5px", marginTop:4 }}>{result.vendor||"Unknown Vendor"}</div>
-                      {result.date && <div style={{ color:"#454768", fontSize:13, marginTop:5 }}>{result.date}</div>}
-                      {result.description && <div style={{ color:"#5a5d7a", fontSize:13, marginTop:7, lineHeight:1.55 }}>{result.description}</div>}
+                      <div style={{ fontSize:26, fontWeight:900, letterSpacing:"-0.5px", marginTop:4 }}>{result.vendor||"Unknown Vendor"}</div>
+                      {result.date && <div style={{ color:"#454768", fontSize:14, marginTop:5 }}>{result.date}</div>}
+                      {result.description && <div style={{ color:"#5a5d7a", fontSize:14, marginTop:7, lineHeight:1.55 }}>{result.description}</div>}
                       {result.currency && result.currency!=="CAD" && (
-                        <span style={{ display:"inline-block", marginTop:10, background:"rgba(251,191,36,0.1)", color:"#fbbf24", border:"1px solid rgba(251,191,36,0.18)", borderRadius:8, padding:"4px 12px", fontSize:11, fontWeight:800 }}>{result.currency}</span>
+                        <span style={{ display:"inline-block", marginTop:10, background:"rgba(251,191,36,0.1)", color:"#fbbf24", border:"1px solid rgba(251,191,36,0.18)", borderRadius:8, padding:"4px 12px", fontSize:12, fontWeight:800 }}>{result.currency}</span>
                       )}
                     </div>
 
-                    {/* Amounts */}
                     <div className="card" style={{ padding:"4px 22px" }}>
-                      {result.subtotal!=null && (
-                        <div className="field-row">
-                          <span className="fl">Pre-Tax Subtotal{result.wasCalculated?" (calculated)":""}</span>
-                          <span className="fv">{formatCAD(result.subtotal)}</span>
-                        </div>
-                      )}
-                      {result.hst!=null && <div className="field-row"><span className="fl">HST{result.wasCalculated?" (calculated)":""}</span><span className="fv">{formatCAD(result.hst)}</span></div>}
+                      {result.subtotal!=null && <div className="field-row"><span className="fl">Pre-Tax Subtotal{result.wasCalculated?" (calc)":""}</span><span className="fv">{formatCAD(result.subtotal)}</span></div>}
+                      {result.hst!=null && <div className="field-row"><span className="fl">HST{result.wasCalculated?" (calc)":""}</span><span className="fv">{formatCAD(result.hst)}</span></div>}
                       {result.gst!=null && <div className="field-row"><span className="fl">GST</span><span className="fv">{formatCAD(result.gst)}</span></div>}
                       {result.pst!=null && <div className="field-row"><span className="fl">PST</span><span className="fv">{formatCAD(result.pst)}</span></div>}
                       <div className="field-row">
-                        <span style={{ fontSize:10, fontWeight:800, letterSpacing:"1px", textTransform:"uppercase", color:"#8a8daa" }}>Total</span>
-                        <span style={{ fontSize:28, fontWeight:900, letterSpacing:"-1px", background:"linear-gradient(90deg,#9d96ff,#c084fc)", WebkitBackgroundClip:"text", WebkitTextFillColor:"transparent", fontFamily:"'JetBrains Mono',monospace" }}>{formatCAD(result.total)}</span>
+                        <span style={{ fontSize:12, fontWeight:800, letterSpacing:"1px", textTransform:"uppercase", color:"#8a8daa" }}>Total</span>
+                        <span style={{ fontSize:30, fontWeight:900, letterSpacing:"-1px", background:"linear-gradient(90deg,#9d96ff,#c084fc)", WebkitBackgroundClip:"text", WebkitTextFillColor:"transparent", fontFamily:"'JetBrains Mono',monospace" }}>{formatCAD(result.total)}</span>
                       </div>
                     </div>
 
                     <MathCheck pre={result.subtotal} hst={result.total_tax??result.hst} total={result.total} wasCalculated={result.wasCalculated}/>
 
                     {result.notes && (
-                      <div style={{ background:"rgba(251,191,36,0.05)", border:"1px solid rgba(251,191,36,0.13)", borderRadius:10, padding:"12px 16px", fontSize:13, color:"#fbbf24", display:"flex", gap:10 }}>
+                      <div style={{ background:"rgba(251,191,36,0.05)", border:"1px solid rgba(251,191,36,0.13)", borderRadius:10, padding:"13px 16px", fontSize:14, color:"#fbbf24", display:"flex", gap:10 }}>
                         <span style={{ flexShrink:0 }}>⚠</span><span>{result.notes}</span>
                       </div>
                     )}
 
-                    {/* Account code */}
-                    <div className="card" style={{ padding:20 }}>
+                    <div className="card" style={{ padding:22 }}>
                       <div className="pill-label" style={{ marginBottom:14 }}>Account Code</div>
                       <div style={{ display:"flex", alignItems:"center", gap:10, marginBottom:10, flexWrap:"wrap" }}>
-                        <div style={{ background:"rgba(124,111,247,0.1)", border:"1px solid rgba(124,111,247,0.2)", borderRadius:8, padding:"7px 14px", fontWeight:800, color:"#c4bfff", fontSize:13, fontFamily:"'JetBrains Mono',monospace" }}>
+                        <div style={{ background:"rgba(124,111,247,0.1)", border:"1px solid rgba(124,111,247,0.2)", borderRadius:8, padding:"8px 15px", fontWeight:800, color:"#c4bfff", fontSize:14, fontFamily:"'JetBrains Mono',monospace" }}>
                           {result.suggested_code} — {result.suggested_label}
                         </div>
-                        <div style={{ fontSize:9, fontWeight:800, letterSpacing:"1px", color:result.confidence==="high"?"#34d399":result.confidence==="medium"?"#fbbf24":"#f87171" }}>
+                        <div style={{ fontSize:10, fontWeight:800, letterSpacing:"1px", color:result.confidence==="high"?"#34d399":result.confidence==="medium"?"#fbbf24":"#f87171" }}>
                           {result.confidence==="high"?"● HIGH":result.confidence==="medium"?"◑ MEDIUM":"○ LOW"} CONFIDENCE
                         </div>
                       </div>
-                      {result.reason && <div style={{ color:"#2e3150", fontSize:13, marginBottom:16, lineHeight:1.55 }}>{result.reason}</div>}
-                      <div style={{ display:"flex", gap:6, flexWrap:"wrap" }}>
+                      {result.reason && <div style={{ color:"#2e3150", fontSize:14, marginBottom:16, lineHeight:1.55 }}>{result.reason}</div>}
+                      <div style={{ display:"flex", gap:7, flexWrap:"wrap" }}>
                         {codes.map(c => (
                           <button key={c.code} className={`code-chip${result.selected_code===c.code?" sel":""}`}
                             onClick={() => setResult(r => ({ ...r, selected_code:c.code, selected_label:c.label }))}>
@@ -537,27 +690,26 @@
               </div>
             )}
 
-            {/* ══════════════════ HISTORY ══════════════════ */}
+            {/* ══════════════ HISTORY ══════════════ */}
             {page==="history" && (
               <div className="fu" style={{ display:"flex", flexDirection:"column", gap:24 }}>
                 <div style={{ display:"flex", justifyContent:"space-between", alignItems:"flex-end", flexWrap:"wrap", gap:12 }}>
                   <div>
                     <div className="pill-label">Records</div>
-                    <h1 style={{ fontSize:32, fontWeight:900, letterSpacing:"-1px" }}>Invoice History</h1>
-                    <p style={{ color:"#2a2d48", fontSize:14, marginTop:6 }}>{history.length} invoice{history.length!==1?"s":""} · saved to this device</p>
+                    <h1 style={{ fontSize:36, fontWeight:900, letterSpacing:"-1px" }}>Invoice History</h1>
+                    <p style={{ color:"#2a2d48", fontSize:15, marginTop:6 }}>{history.length} invoice{history.length!==1?"s":""} · saved to this device</p>
                   </div>
                   {history.length>0 && (
                     <div style={{ display:"flex", gap:10 }}>
-                      <button className="outline-btn" style={{ padding:"10px 16px", fontSize:12, color:"#f87171", borderColor:"rgba(248,113,113,0.18)" }}
+                      <button className="outline-btn" style={{ padding:"11px 18px", fontSize:13, color:"#f87171", borderColor:"rgba(248,113,113,0.18)" }}
                         onClick={() => { if(window.confirm("Clear all invoice history?")) { setHistory([]); saveHistory([]); } }}>
                         Clear All
                       </button>
-                      <button className="save-btn" style={{ padding:"10px 20px", fontSize:13 }} onClick={() => exportCSV(history)}>↓ Export CSV</button>
+                      <button className="save-btn" style={{ padding:"11px 22px", fontSize:14 }} onClick={() => exportCSV(history)}>↓ Export CSV</button>
                     </div>
                   )}
                 </div>
 
-                {/* Stats bar */}
                 {history.length>0 && (
                   <div className="stats-bar">
                     <div className="stat-item">
@@ -565,11 +717,11 @@
                       <div className="stat-lbl">Invoices</div>
                     </div>
                     <div className="stat-item">
-                      <div className="stat-val" style={{ fontSize:16 }}>{formatCAD(totalSpend)}</div>
+                      <div className="stat-val" style={{ fontSize:17 }}>{formatCAD(totalSpend)}</div>
                       <div className="stat-lbl">Total Spend</div>
                     </div>
                     <div className="stat-item">
-                      <div className="stat-val" style={{ fontSize:16 }}>{formatCAD(totalTax)}</div>
+                      <div className="stat-val" style={{ fontSize:17 }}>{formatCAD(totalTax)}</div>
                       <div className="stat-lbl">Total Tax Paid</div>
                     </div>
                   </div>
@@ -577,33 +729,36 @@
 
                 {history.length===0 ? (
                   <div style={{ textAlign:"center", padding:"80px 24px", background:"rgba(255,255,255,0.01)", border:"1px dashed #0e1020", borderRadius:20 }}>
-                    <div style={{ fontSize:56, marginBottom:16, opacity:0.3 }}>📂</div>
-                    <div style={{ fontWeight:800, fontSize:18, color:"#383b5a" }}>No invoices yet</div>
-                    <div style={{ fontSize:13, marginTop:8, color:"#1e2138" }}>Scan your first invoice to see it here</div>
+                    <div style={{ fontSize:60, marginBottom:16, opacity:0.3 }}>📂</div>
+                    <div style={{ fontWeight:800, fontSize:20, color:"#383b5a" }}>No invoices yet</div>
+                    <div style={{ fontSize:14, marginTop:8, color:"#1e2138" }}>Scan your first invoice to see it here</div>
                     <button className="save-btn" style={{ marginTop:24 }} onClick={() => setPage("scan")}>Scan Now</button>
                   </div>
                 ) : (
-                  <div style={{ display:"flex", flexDirection:"column", gap:10 }}>
+                  <div style={{ display:"flex", flexDirection:"column", gap:12 }}>
                     {history.map(r => (
                       <div key={r.id} className="history-row">
                         <div style={{ display:"flex", justifyContent:"space-between", alignItems:"flex-start", gap:16 }}>
                           <div style={{ flex:1 }}>
                             <div style={{ display:"flex", alignItems:"center", gap:8, flexWrap:"wrap" }}>
-                              <div style={{ fontWeight:900, fontSize:17, letterSpacing:"-0.3px" }}>{r.vendor||"Unknown Vendor"}</div>
-                              {r.wasCalculated && <span style={{ fontSize:9, fontWeight:800, color:"#7c6ff7", background:"rgba(124,111,247,0.1)", border:"1px solid rgba(124,111,247,0.2)", borderRadius:4, padding:"2px 7px", letterSpacing:"0.5px" }}>HST CALCULATED</span>}
+                              <div style={{ fontWeight:900, fontSize:18, letterSpacing:"-0.3px" }}>{r.vendor||"Unknown Vendor"}</div>
+                              {r.wasCalculated && <span style={{ fontSize:9, fontWeight:800, color:"#7c6ff7", background:"rgba(124,111,247,0.1)", border:"1px solid rgba(124,111,247,0.2)", borderRadius:4, padding:"2px 7px", letterSpacing:"0.5px" }}>HST CALC</span>}
                             </div>
-                            <div style={{ color:"#2a2d48", fontSize:11, fontWeight:600, marginTop:4 }}>{r.date||new Date(r.timestamp).toLocaleDateString("en-CA")} · {r.filename}</div>
-                            {r.description && <div style={{ color:"#454768", fontSize:13, marginTop:6, lineHeight:1.5 }}>{r.description}</div>}
-                            <div style={{ marginTop:10 }}>
-                              <span style={{ background:"rgba(124,111,247,0.08)", color:"#9d96ff", border:"1px solid rgba(124,111,247,0.14)", borderRadius:6, padding:"4px 10px", fontSize:10, fontWeight:800, fontFamily:"'JetBrains Mono',monospace" }}>
+                            <div style={{ color:"#2a2d48", fontSize:12, fontWeight:600, marginTop:4 }}>{r.date||new Date(r.timestamp).toLocaleDateString("en-CA")} · {r.filename}</div>
+                            {r.description && <div style={{ color:"#454768", fontSize:14, marginTop:6, lineHeight:1.5 }}>{r.description}</div>}
+                            <div style={{ marginTop:10, display:"flex", alignItems:"center", gap:10, flexWrap:"wrap" }}>
+                              <span style={{ background:"rgba(124,111,247,0.08)", color:"#9d96ff", border:"1px solid rgba(124,111,247,0.14)", borderRadius:6, padding:"5px 11px", fontSize:11, fontWeight:800, fontFamily:"'JetBrains Mono',monospace" }}>
                                 {r.selected_code} · {r.selected_label}
                               </span>
+                              <button className="print-btn" onClick={() => setPrintRecord(r)}>
+                                🖨 Print Receipt
+                              </button>
                             </div>
                           </div>
                           <div style={{ textAlign:"right", flexShrink:0 }}>
-                            <div style={{ fontSize:22, fontWeight:900, letterSpacing:"-0.5px", background:"linear-gradient(90deg,#9d96ff,#c084fc)", WebkitBackgroundClip:"text", WebkitTextFillColor:"transparent", fontFamily:"'JetBrains Mono',monospace" }}>{formatCAD(r.total)}</div>
-                            <div style={{ color:"#2a2d48", fontSize:11, fontWeight:600, marginTop:4 }}>Pre-tax {formatCAD(r.subtotal)}</div>
-                            <div style={{ color:"#2a2d48", fontSize:11, fontWeight:600 }}>Tax {formatCAD(r.total_tax??r.hst)}</div>
+                            <div style={{ fontSize:24, fontWeight:900, letterSpacing:"-0.5px", background:"linear-gradient(90deg,#9d96ff,#c084fc)", WebkitBackgroundClip:"text", WebkitTextFillColor:"transparent", fontFamily:"'JetBrains Mono',monospace" }}>{formatCAD(r.total)}</div>
+                            <div style={{ color:"#2a2d48", fontSize:12, fontWeight:600, marginTop:4 }}>Pre-tax {formatCAD(r.subtotal)}</div>
+                            <div style={{ color:"#2a2d48", fontSize:12, fontWeight:600 }}>Tax {formatCAD(r.total_tax??r.hst)}</div>
                           </div>
                         </div>
                       </div>
@@ -613,22 +768,21 @@
               </div>
             )}
 
-            {/* ══════════════════ CODES SETTINGS ══════════════════ */}
+            {/* ══════════════ CODES SETTINGS ══════════════ */}
             {page==="settings" && (
               <div className="fu" style={{ display:"flex", flexDirection:"column", gap:24 }}>
                 <div>
                   <div className="pill-label">Configuration</div>
-                  <h1 style={{ fontSize:32, fontWeight:900, letterSpacing:"-1px" }}>Account Codes</h1>
-                  <p style={{ color:"#2a2d48", fontSize:14, marginTop:6, lineHeight:1.65 }}>
-                    Your codes are <span style={{ color:"#7c6ff7", fontWeight:700 }}>saved permanently</span> on this device. Customize them to match your chart of accounts — the AI uses these every time.
+                  <h1 style={{ fontSize:36, fontWeight:900, letterSpacing:"-1px" }}>Account Codes</h1>
+                  <p style={{ color:"#2a2d48", fontSize:15, marginTop:6, lineHeight:1.65 }}>
+                    Your codes are <span style={{ color:"#7c6ff7", fontWeight:700 }}>saved permanently</span> on this device. Customize to match your chart of accounts.
                   </p>
                 </div>
 
-                {/* Add / edit form */}
-                <div style={{ background:"rgba(124,111,247,0.05)", border:"1px solid rgba(124,111,247,0.12)", borderRadius:16, padding:22 }}>
-                  <div style={{ fontWeight:800, fontSize:15, marginBottom:18, color:"#b0abff" }}>{editingIdx!==null?"✎  Edit Code":"+ Add New Code"}</div>
-                  <div style={{ display:"flex", gap:12, marginBottom:12 }}>
-                    <div style={{ flex:"0 0 108px" }}>
+                <div style={{ background:"rgba(124,111,247,0.05)", border:"1px solid rgba(124,111,247,0.12)", borderRadius:16, padding:24 }}>
+                  <div style={{ fontWeight:800, fontSize:16, marginBottom:18, color:"#b0abff" }}>{editingIdx!==null?"✎  Edit Code":"+ Add New Code"}</div>
+                  <div style={{ display:"flex", gap:12, marginBottom:14 }}>
+                    <div style={{ flex:"0 0 115px" }}>
                       <div className="pill-label" style={{ marginBottom:7 }}>Code #</div>
                       <input className="ie-input" placeholder="5100" value={settingsCode.code} onChange={e => setSettingsCode(s=>({...s,code:e.target.value}))}/>
                     </div>
@@ -655,43 +809,40 @@
                   </div>
                 </div>
 
-                {/* Code list */}
-                <div style={{ display:"flex", flexDirection:"column", gap:8 }}>
+                <div style={{ display:"flex", flexDirection:"column", gap:9 }}>
                   {codes.map((c,i) => (
                     <div key={`${c.code}-${i}`} className="code-row">
-                      <div style={{ fontFamily:"'JetBrains Mono',monospace", fontWeight:600, color:"#9d96ff", fontSize:13, minWidth:52, background:"rgba(124,111,247,0.08)", padding:"5px 10px", borderRadius:7, textAlign:"center", flexShrink:0 }}>{c.code}</div>
+                      <div style={{ fontFamily:"'JetBrains Mono',monospace", fontWeight:600, color:"#9d96ff", fontSize:14, minWidth:56, background:"rgba(124,111,247,0.08)", padding:"6px 10px", borderRadius:7, textAlign:"center", flexShrink:0 }}>{c.code}</div>
                       <div style={{ flex:1, minWidth:0 }}>
-                        <div style={{ fontWeight:700, fontSize:14, color:"#d0d0e8" }}>{c.label}</div>
-                        {c.keywords?.length>0 && <div style={{ color:"#1e2138", fontSize:11, marginTop:3, fontWeight:600, overflow:"hidden", textOverflow:"ellipsis", whiteSpace:"nowrap" }}>{c.keywords.slice(0,8).join(" · ")}{c.keywords.length>8?"…":""}</div>}
+                        <div style={{ fontWeight:700, fontSize:15, color:"#d0d0e8" }}>{c.label}</div>
+                        {c.keywords?.length>0 && <div style={{ color:"#1e2138", fontSize:12, marginTop:3, fontWeight:600, overflow:"hidden", textOverflow:"ellipsis", whiteSpace:"nowrap" }}>{c.keywords.slice(0,8).join(" · ")}{c.keywords.length>8?"…":""}</div>}
                       </div>
                       <div style={{ display:"flex", gap:8, flexShrink:0 }}>
-                        <button className="outline-btn" style={{ padding:"6px 14px", fontSize:12 }} onClick={() => { setSettingsCode({code:c.code,label:c.label,keywords:c.keywords.join(", ")}); setEditingIdx(i); }}>Edit</button>
-                        <button className="outline-btn" style={{ padding:"6px 14px", fontSize:12, color:"#f87171", borderColor:"rgba(248,113,113,0.18)" }} onClick={() => setCodes(cs=>cs.filter((_,j)=>j!==i))}>Remove</button>
+                        <button className="outline-btn" style={{ padding:"7px 14px", fontSize:13 }} onClick={() => { setSettingsCode({code:c.code,label:c.label,keywords:c.keywords.join(", ")}); setEditingIdx(i); }}>Edit</button>
+                        <button className="outline-btn" style={{ padding:"7px 14px", fontSize:13, color:"#f87171", borderColor:"rgba(248,113,113,0.18)" }} onClick={() => setCodes(cs=>cs.filter((_,j)=>j!==i))}>Remove</button>
                       </div>
                     </div>
                   ))}
                 </div>
 
-                {/* Reset to defaults */}
                 <div style={{ borderTop:"1px solid #0e1020", paddingTop:20, display:"flex", justifyContent:"space-between", alignItems:"center", flexWrap:"wrap", gap:12 }}>
                   <div>
                     <div className="pill-label" style={{ marginBottom:4 }}>Reset Codes</div>
-                    <div style={{ fontSize:12, color:"#1e2138" }}>Restore the original default Canadian code list</div>
+                    <div style={{ fontSize:13, color:"#1e2138" }}>Restore the original default Canadian code list</div>
                   </div>
-                  <button className="outline-btn" style={{ padding:"10px 18px", fontSize:12, color:"#f87171", borderColor:"rgba(248,113,113,0.18)" }}
+                  <button className="outline-btn" style={{ padding:"10px 18px", fontSize:13, color:"#f87171", borderColor:"rgba(248,113,113,0.18)" }}
                     onClick={() => { if(window.confirm("Reset all codes to defaults? This cannot be undone.")) { setCodes(DEFAULT_CODES); } }}>
                     Reset to Defaults
                   </button>
                 </div>
 
-                {/* API key section */}
                 <div style={{ borderTop:"1px solid #0e1020", paddingTop:20 }}>
                   <div className="pill-label" style={{ marginBottom:10 }}>API Key</div>
                   <div style={{ display:"flex", gap:10, alignItems:"center" }}>
-                    <div style={{ flex:1, fontFamily:"'JetBrains Mono',monospace", fontSize:12, color:"#2a2d48", background:"rgba(255,255,255,0.02)", border:"1px solid #0e1020", borderRadius:8, padding:"10px 14px" }}>
+                    <div style={{ flex:1, fontFamily:"'JetBrains Mono',monospace", fontSize:13, color:"#2a2d48", background:"rgba(255,255,255,0.02)", border:"1px solid #0e1020", borderRadius:8, padding:"11px 14px" }}>
                       {apiKey.slice(0,20)}••••••••••••
                     </div>
-                    <button className="outline-btn" style={{ padding:"10px 16px", fontSize:12, color:"#f87171", borderColor:"rgba(248,113,113,0.18)", whiteSpace:"nowrap" }}
+                    <button className="outline-btn" style={{ padding:"11px 16px", fontSize:13, color:"#f87171", borderColor:"rgba(248,113,113,0.18)", whiteSpace:"nowrap" }}
                       onClick={() => { if(window.confirm("Change your API key?")) { localStorage.removeItem("ie_api_key"); setApiKey(""); } }}>
                       Change Key
                     </button>
@@ -701,7 +852,7 @@
             )}
           </main>
 
-          <footer style={{ textAlign:"center", padding:"24px", color:"#0d0f1e", fontSize:10, fontWeight:700, letterSpacing:"2px", textTransform:"uppercase" }}>
+          <footer style={{ textAlign:"center", padding:"28px 24px", color:"#0d0f1e", fontSize:11, fontWeight:700, letterSpacing:"2px", textTransform:"uppercase" }}>
             Invoice Expert · AI-Powered · Canada
           </footer>
         </div>
