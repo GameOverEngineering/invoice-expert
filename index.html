@@ -136,6 +136,38 @@
     }
     function saveHistory(h) { try { localStorage.setItem("ie_history", JSON.stringify(h)); } catch(e) {} }
 
+    // Compress image to max 1600px wide, 85% quality — keeps detail but trims file size
+    function compressImage(file, maxSize=1600, quality=0.85) {
+      return new Promise((res, rej) => {
+        const reader = new FileReader();
+        reader.onload = e => {
+          const img = new Image();
+          img.onload = () => {
+            const canvas = document.createElement("canvas");
+            let w = img.width, h = img.height;
+            if (w > maxSize) { h = Math.round(h * maxSize / w); w = maxSize; }
+            if (h > maxSize) { w = Math.round(w * maxSize / h); h = maxSize; }
+            canvas.width = w; canvas.height = h;
+            const ctx = canvas.getContext("2d");
+            // White background first (helps with dark receipts)
+            ctx.fillStyle = "#ffffff";
+            ctx.fillRect(0, 0, w, h);
+            ctx.drawImage(img, 0, 0, w, h);
+            const dataUrl = canvas.toDataURL("image/jpeg", quality);
+            res(dataUrl);
+          };
+          img.onerror = rej;
+          img.src = e.target.result;
+        };
+        reader.onerror = rej;
+        reader.readAsDataURL(file);
+      });
+    }
+
+    function dataUrlToBase64(dataUrl) {
+      return dataUrl.split(",")[1];
+    }
+
     function fileToBase64(file) {
       return new Promise((res, rej) => {
         const r = new FileReader();
@@ -444,13 +476,18 @@
           if (!isImage && !isPDF) { alert("Please upload an image (JPG, PNG) or PDF."); setLoading(false); return; }
 
           setLoadingMsg("Reading your invoice…"); setLoadingStep(1);
-          const b64 = await fileToBase64(file);
 
-          // Also store full data URL for printing (images only, not PDF)
-          let imageDataUrl = null;
+          // Compress image before sending — fixes large photo failures
+          let b64, sendMediaType, imageDataUrl;
           if (isImage) {
-            imageDataUrl = await fileToDataURL(file);
+            setLoadingMsg("Optimising image…");
+            const compressed = await compressImage(file);
+            imageDataUrl = compressed;
+            b64 = dataUrlToBase64(compressed);
+            sendMediaType = "image/jpeg";
           } else {
+            b64 = await fileToBase64(file);
+            sendMediaType = "application/pdf";
             imageDataUrl = "pdf";
           }
 
@@ -458,10 +495,10 @@
 
           setLoadingMsg("Extracting amounts…"); setLoadingStep(2);
           const extractData = await callClaude({
-            model:"claude-sonnet-4-20250514", max_tokens:1000,
+            model:"claude-sonnet-4-20250514", max_tokens:1500,
             messages:[{ role:"user", content:[
               isImage
-                ? { type:"image", source:{ type:"base64", media_type:file.type, data:b64 } }
+                ? { type:"image", source:{ type:"base64", media_type:sendMediaType, data:b64 } }
                 : { type:"document", source:{ type:"base64", media_type:"application/pdf", data:b64 } },
               { type:"text", text:`You are an expert invoice parser for a Canadian small business expense app. Your job is to extract data accurately even from dark, low-contrast, or poorly-lit invoice photos.
 
@@ -494,6 +531,15 @@ NOTES: Flag anything unusual — multiple tax rates, foreign currency, partial p
             ]}]
           });
           const extractText = extractData.content?.find(b => b.type==="text")?.text || "{}";
+
+          // Check for API errors
+          if (extractData.error) {
+            throw new Error(`API Error: ${extractData.error.message || JSON.stringify(extractData.error)}`);
+          }
+          if (!extractData.content || extractData.content.length === 0) {
+            throw new Error(`No response from API. Check your API key and credits at console.anthropic.com`);
+          }
+
           let parsed;
           try { parsed = JSON.parse(extractText.replace(/```json|```/g,"").trim()); } catch { parsed = {}; }
 
