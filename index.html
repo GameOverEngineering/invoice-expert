@@ -463,7 +463,34 @@
               isImage
                 ? { type:"image", source:{ type:"base64", media_type:file.type, data:b64 } }
                 : { type:"document", source:{ type:"base64", media_type:"application/pdf", data:b64 } },
-              { type:"text", text:`You are an invoice parser for a Canadian small business expense app. Return ONLY valid JSON, no markdown:\n\n{"vendor":"string","date":"string or null","description":"string","subtotal":number_or_null,"hst":number_or_null,"gst":number_or_null,"pst":number_or_null,"total_tax":number_or_null,"total":number_or_null,"currency":"CAD or USD","notes":"string or null"}\n\nRules: subtotal=pre-tax amount before any tax. total_tax=all tax combined. All amounts as plain numbers. null if not visible.` }
+              { type:"text", text:`You are an expert invoice parser for a Canadian small business expense app. Your job is to extract data accurately even from dark, low-contrast, or poorly-lit invoice photos.
+
+Return ONLY valid JSON, no markdown, no explanation:
+{"vendor":"string","date":"string or null","description":"string","subtotal":number_or_null,"hst":number_or_null,"gst":number_or_null,"pst":number_or_null,"total_tax":number_or_null,"total":number_or_null,"currency":"CAD or USD","notes":"string or null"}
+
+VENDOR DETECTION — be aggressive and smart:
+- Look everywhere on the document: header, footer, logo area, email addresses, URLs, domain names, billing contact sections, watermarks, "from" fields
+- If you see a URL or email, extract the company name from the domain. Examples: helpx.adobe.com → Adobe, billing.amazon.ca → Amazon, invoices.google.com → Google, shop.apple.com → Apple, microsoft.com → Microsoft
+- If the invoice is addressed FROM a company (not just TO), that is the vendor
+- Look for "Billing Contact", "From", "Issued by", "Service Provider" labels
+- If product names strongly suggest a vendor (e.g. "Acrobat Pro", "Creative Cloud" → Adobe; "Office 365" → Microsoft), use that
+- Never return "Unknown" if there are ANY clues — make your best inference and note it
+
+AMOUNT EXTRACTION — be thorough:
+- Look in ALL table cells, line item totals, summary sections, and footers
+- Common labels: "Net Amount", "Subtotal", "Sub-total", "Pre-tax", "Amount Before Tax", "Grand Total", "Invoice Total", "Total Due", "Balance Due", "HST", "GST", "PST", "Tax", "Taxes"
+- Numbers may appear in dark-background table rows — look carefully
+- If amounts appear in a summary table at the bottom, use those as the primary source
+- subtotal = pre-tax amount (Net Amount, Amount Before Tax, etc.)
+- total_tax = all tax combined
+- hst = HST specifically if labelled
+- total = the final grand total (Grand Total, Total Due, Invoice Total, Balance Due)
+- All amounts as plain numbers, no $ signs or commas
+- null only if genuinely not visible after careful examination
+
+DESCRIPTION: Summarize what was purchased in plain English (e.g. "Adobe Creative Cloud subscription — Acrobat Pro x9, Creative Cloud Pro x1")
+
+NOTES: Flag anything unusual — multiple tax rates, foreign currency, partial payments, calculated amounts` }
             ]}]
           });
           const extractText = extractData.content?.find(b => b.type==="text")?.text || "{}";
@@ -480,7 +507,19 @@
           setLoadingMsg("Matching account code…"); setLoadingStep(3);
           const codeData = await callClaude({
             model:"claude-sonnet-4-20250514", max_tokens:500,
-            messages:[{ role:"user", content:`Expense categorization for Canadian small business.\nVendor: ${parsed.vendor||"Unknown"}\nDescription: ${parsed.description||"N/A"}\nTotal: ${parsed.total||"N/A"}\n\nAccount codes:\n${codesCtx}\n\nReturn ONLY valid JSON: {"suggested_code":"string","suggested_label":"string","confidence":"high|medium|low","reason":"one sentence"}` }]
+            messages:[{ role:"user", content:`You are an expert expense categorization assistant for a Canadian small business.
+
+Vendor: ${parsed.vendor||"Unknown"}
+Description: ${parsed.description||"N/A"}
+Total: ${parsed.total||"N/A"}
+
+Use BOTH the vendor name AND the description to determine the best account code.
+Examples: Adobe/Creative Cloud/Acrobat → Subscriptions & Software. Petro-Canada/fuel/gas → Fuel & Gas. Tim Hortons/restaurant/meal → Meals & Entertainment.
+
+Available account codes:
+${codesCtx}
+
+Return ONLY valid JSON: {"suggested_code":"string","suggested_label":"string","confidence":"high|medium|low","reason":"one sentence"}` }]
           });
           const codeText = codeData.content?.find(b => b.type==="text")?.text || "{}";
           let cp;
