@@ -495,7 +495,7 @@
 
           setLoadingMsg("Extracting amounts…"); setLoadingStep(2);
           const extractData = await callClaude({
-            model:"claude-sonnet-4-20250514", max_tokens:1500,
+            model:"claude-sonnet-4-5", max_tokens:1500,
             messages:[{ role:"user", content:[
               isImage
                 ? { type:"image", source:{ type:"base64", media_type:sendMediaType, data:b64 } }
@@ -552,7 +552,7 @@ NOTES: Flag anything unusual — multiple tax rates, foreign currency, partial p
 
           setLoadingMsg("Matching account code…"); setLoadingStep(3);
           const codeData = await callClaude({
-            model:"claude-sonnet-4-20250514", max_tokens:500,
+            model:"claude-sonnet-4-5", max_tokens:500,
             messages:[{ role:"user", content:`You are an expert expense categorization assistant for a Canadian small business.
 
 Vendor: ${parsed.vendor||"Unknown"}
