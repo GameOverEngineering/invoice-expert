@@ -192,6 +192,31 @@
       return new Intl.NumberFormat("en-CA", { style:"currency", currency:"CAD" }).format(n);
     }
 
+    // Format any date string into readable Canadian format
+    function formatDate(dateStr) {
+      if (!dateStr) return null;
+      // Try parsing various formats: YYYY-MM-DD, DD/MM/YYYY, MM/DD/YYYY, Jan 30 2026 etc.
+      const cleaned = dateStr.trim();
+      // Handle DD/MM/YYYY (European format from invoices)
+      const ddmmyyyy = cleaned.match(/^(\d{1,2})[\/\-\.](\d{1,2})[\/\-\.](\d{4})$/);
+      if (ddmmyyyy) {
+        const [_, d, m, y] = ddmmyyyy;
+        const date = new Date(`${y}-${m.padStart(2,"0")}-${d.padStart(2,"0")}`);
+        if (!isNaN(date)) return date.toLocaleDateString("en-CA", { year:"numeric", month:"long", day:"numeric" });
+      }
+      // Handle YYYY-MM-DD (ISO format)
+      const iso = cleaned.match(/^(\d{4})[\/\-\.](\d{1,2})[\/\-\.](\d{1,2})$/);
+      if (iso) {
+        const date = new Date(cleaned);
+        if (!isNaN(date)) return date.toLocaleDateString("en-CA", { year:"numeric", month:"long", day:"numeric" });
+      }
+      // Try native parsing as fallback
+      const fallback = new Date(cleaned);
+      if (!isNaN(fallback)) return fallback.toLocaleDateString("en-CA", { year:"numeric", month:"long", day:"numeric" });
+      // Return as-is if we can't parse it
+      return cleaned;
+    }
+
     function calcBackwardsHST(total) {
       if (!total) return null;
       const pre = Math.round((total / (1 + HST_RATE)) * 100) / 100;
@@ -257,7 +282,7 @@
               <div style={{ marginBottom:24 }}>
                 <div style={{ fontSize:11, fontWeight:700, letterSpacing:"1.5px", textTransform:"uppercase", color:"#999", marginBottom:6 }}>Vendor</div>
                 <div style={{ fontSize:28, fontWeight:900, color:"#1a1a2e", letterSpacing:"-0.5px" }}>{r.vendor || "Unknown Vendor"}</div>
-                {r.date && <div style={{ fontSize:14, color:"#666", marginTop:4 }}>{r.date}</div>}
+                {r.date && <div style={{ fontSize:14, color:"#666", marginTop:4 }}>{formatDate(r.date)}</div>}
                 {r.description && <div style={{ fontSize:14, color:"#444", marginTop:6, lineHeight:1.5 }}>{r.description}</div>}
               </div>
 
@@ -769,7 +794,7 @@ Return ONLY valid JSON: {"suggested_code":"string","suggested_label":"string","c
                     <div style={{ background:"linear-gradient(135deg,rgba(124,111,247,0.08),rgba(176,108,244,0.04))", border:"1px solid rgba(124,111,247,0.15)", borderRadius:18, padding:"24px 26px" }}>
                       <div className="pill-label">Vendor</div>
                       <div style={{ fontSize:26, fontWeight:900, letterSpacing:"-0.5px", marginTop:4 }}>{result.vendor||"Unknown Vendor"}</div>
-                      {result.date && <div style={{ color:"#454768", fontSize:14, marginTop:5 }}>{result.date}</div>}
+                      {result.date && <div style={{ color:"#454768", fontSize:14, marginTop:5 }}>{formatDate(result.date)}</div>}
                       {result.description && <div style={{ color:"#5a5d7a", fontSize:14, marginTop:7, lineHeight:1.55 }}>{result.description}</div>}
                       {result.currency && result.currency!=="CAD" && (
                         <span style={{ display:"inline-block", marginTop:10, background:"rgba(251,191,36,0.1)", color:"#fbbf24", border:"1px solid rgba(251,191,36,0.18)", borderRadius:8, padding:"4px 12px", fontSize:12, fontWeight:800 }}>{result.currency}</span>
@@ -880,7 +905,7 @@ Return ONLY valid JSON: {"suggested_code":"string","suggested_label":"string","c
                               <div style={{ fontWeight:900, fontSize:18, letterSpacing:"-0.3px" }}>{r.vendor||"Unknown Vendor"}</div>
                               {r.wasCalculated && <span style={{ fontSize:9, fontWeight:800, color:"#7c6ff7", background:"rgba(124,111,247,0.1)", border:"1px solid rgba(124,111,247,0.2)", borderRadius:4, padding:"2px 7px", letterSpacing:"0.5px" }}>HST CALC</span>}
                             </div>
-                            <div style={{ color:"#2a2d48", fontSize:12, fontWeight:600, marginTop:4 }}>{r.date||new Date(r.timestamp).toLocaleDateString("en-CA")} · {r.filename}</div>
+                            <div style={{ color:"#2a2d48", fontSize:12, fontWeight:600, marginTop:4 }}>{formatDate(r.date) || new Date(r.timestamp).toLocaleDateString("en-CA", { year:"numeric", month:"long", day:"numeric" })} · {r.filename}</div>
                             {r.description && <div style={{ color:"#454768", fontSize:14, marginTop:6, lineHeight:1.5 }}>{r.description}</div>}
                             <div style={{ marginTop:10, display:"flex", alignItems:"center", gap:10, flexWrap:"wrap" }}>
                               <span style={{ background:"rgba(124,111,247,0.08)", color:"#9d96ff", border:"1px solid rgba(124,111,247,0.14)", borderRadius:6, padding:"5px 11px", fontSize:11, fontWeight:800, fontFamily:"'JetBrains Mono',monospace" }}>
