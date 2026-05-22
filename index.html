@@ -224,6 +224,53 @@
       return { pre, hst };
     }
 
+    // Generate invoice number fallback: VendorName-Date
+    function getInvoiceNumber(record) {
+      if (record.invoice_number) return record.invoice_number;
+      const vendor = (record.vendor || "INV").replace(/[^a-zA-Z0-9]/g, "").toUpperCase().slice(0, 10);
+      const date = record.date ? record.date.replace(/[^0-9]/g, "").slice(0, 8) : new Date(record.timestamp).toISOString().slice(0,10).replace(/-/g,"");
+      return `${vendor}-${date}`;
+    }
+
+    // Format date as YYYY-MM-DD for Sage 50
+    function toSageDate(dateStr, timestamp) {
+      if (dateStr) {
+        // Try DD/MM/YYYY
+        const ddmm = dateStr.match(/^(\d{1,2})[\/\-\.](\d{1,2})[\/\-\.](\d{4})$/);
+        if (ddmm) return `${ddmm[3]}-${ddmm[2].padStart(2,"0")}-${ddmm[1].padStart(2,"0")}`;
+        // Try YYYY-MM-DD
+        const iso = dateStr.match(/^\d{4}-\d{2}-\d{2}$/);
+        if (iso) return dateStr;
+        // Try native parse
+        const d = new Date(dateStr);
+        if (!isNaN(d)) return d.toISOString().slice(0,10);
+      }
+      return new Date(timestamp).toISOString().slice(0,10);
+    }
+
+    // Generate Sage 50 Canadian .imp file content
+    function generateSageImp(record) {
+      const vendor   = (record.vendor || "UNKNOWN VENDOR").toUpperCase();
+      const invNum   = getInvoiceNumber(record);
+      const date     = toSageDate(record.date, record.timestamp);
+      const subtotal = parseFloat(record.subtotal || 0).toFixed(2);
+      const hst      = parseFloat(record.total_tax || record.hst || 0).toFixed(2);
+      const total    = parseFloat(record.total || 0).toFixed(2);
+      const acctCode = record.selected_code || "5000";
+
+      let content = "";
+      content += `<Version>\n"33101", "1"\n</Version>\n`;
+      content += `<PurInvoice>\n`;
+      // Vendor line: Name, Type, Address, City, Province, Postal, Country
+      content += `"${vendor}","0","","","","","Canada"\n`;
+      // Invoice header: Type, blank, InvoiceNum, Date, Total, Prepaid, Terms1, Terms2, Discount
+      content += `"1","","${invNum}","${date}","${total}","0.00","30","60","0.00"\n`;
+      // Single summary line item: Qty, UnitPrice, UnitPrice, NetAmount, TaxCode, TaxIncl, TaxType, TaxRate, TaxAmount
+      content += `"1.0000","${subtotal}","${subtotal}","${subtotal}","GST/HST","0","1","13.00","${hst}"\n`;
+      content += `</PurInvoice>\n`;
+      return content;
+    }
+
     // ─── PRINT RECEIPT COMPONENT ──────────────────────────────────────────
     function PrintReceipt({ record, onClose }) {
       const ref = useRef();
@@ -282,7 +329,7 @@
               <div style={{ marginBottom:24 }}>
                 <div style={{ fontSize:11, fontWeight:700, letterSpacing:"1.5px", textTransform:"uppercase", color:"#999", marginBottom:6 }}>Vendor</div>
                 <div style={{ fontSize:28, fontWeight:900, color:"#1a1a2e", letterSpacing:"-0.5px" }}>{r.vendor || "Unknown Vendor"}</div>
-                {r.date && <div style={{ fontSize:14, color:"#666", marginTop:4 }}>{formatDate(r.date)}</div>}
+                {r.date && <div style={{ fontSize:14, color:"#666", marginTop:4 }}>{formatDate(r.date)}{r.invoice_number && <span style={{ marginLeft:12, fontFamily:"'JetBrains Mono',monospace", fontSize:12, color:"#999" }}>Invoice #{r.invoice_number}</span>}</div>}
                 {r.description && <div style={{ fontSize:14, color:"#444", marginTop:6, lineHeight:1.5 }}>{r.description}</div>}
               </div>
 
@@ -528,7 +575,7 @@
               { type:"text", text:`You are an expert invoice parser for a Canadian small business expense app. Your job is to extract data accurately even from dark, low-contrast, or poorly-lit invoice photos.
 
 Return ONLY valid JSON, no markdown, no explanation:
-{"vendor":"string","date":"string or null","description":"string","subtotal":number_or_null,"hst":number_or_null,"gst":number_or_null,"pst":number_or_null,"total_tax":number_or_null,"total":number_or_null,"currency":"CAD or USD","notes":"string or null"}
+{"vendor":"string","invoice_number":"string or null","date":"string or null","description":"string","subtotal":number_or_null,"hst":number_or_null,"gst":number_or_null,"pst":number_or_null,"total_tax":number_or_null,"total":number_or_null,"currency":"CAD or USD","notes":"string or null"}
 
 VENDOR DETECTION — be aggressive and smart:
 - Look everywhere on the document: header, footer, logo area, email addresses, URLs, domain names, billing contact sections, watermarks, "from" fields
@@ -537,6 +584,12 @@ VENDOR DETECTION — be aggressive and smart:
 - Look for "Billing Contact", "From", "Issued by", "Service Provider" labels
 - If product names strongly suggest a vendor (e.g. "Acrobat Pro", "Creative Cloud" → Adobe; "Office 365" → Microsoft), use that
 - Never return "Unknown" if there are ANY clues — make your best inference and note it
+
+INVOICE NUMBER — look carefully:
+- Common labels: "Invoice #", "Invoice No", "Invoice Number", "Order #", "Reference #", "PO Number", "Bill #"
+- Usually found near the top of the invoice
+- Return as a string exactly as shown (e.g. "INV-10234", "2026-0045")
+- If not found, return null (the app will generate a fallback)
 
 AMOUNT EXTRACTION — be thorough:
 - Look in ALL table cells, line item totals, summary sections, and footers
@@ -794,7 +847,7 @@ Return ONLY valid JSON: {"suggested_code":"string","suggested_label":"string","c
                     <div style={{ background:"linear-gradient(135deg,rgba(124,111,247,0.08),rgba(176,108,244,0.04))", border:"1px solid rgba(124,111,247,0.15)", borderRadius:18, padding:"24px 26px" }}>
                       <div className="pill-label">Vendor</div>
                       <div style={{ fontSize:26, fontWeight:900, letterSpacing:"-0.5px", marginTop:4 }}>{result.vendor||"Unknown Vendor"}</div>
-                      {result.date && <div style={{ color:"#454768", fontSize:14, marginTop:5 }}>{formatDate(result.date)}</div>}
+                      {result.date && <div style={{ color:"#454768", fontSize:14, marginTop:5 }}>{formatDate(result.date)}{result.invoice_number && <span style={{ marginLeft:12, color:"#3a3d58", fontFamily:"'JetBrains Mono',monospace", fontSize:12 }}>#{result.invoice_number}</span>}</div>}
                       {result.description && <div style={{ color:"#5a5d7a", fontSize:14, marginTop:7, lineHeight:1.55 }}>{result.description}</div>}
                       {result.currency && result.currency!=="CAD" && (
                         <span style={{ display:"inline-block", marginTop:10, background:"rgba(251,191,36,0.1)", color:"#fbbf24", border:"1px solid rgba(251,191,36,0.18)", borderRadius:8, padding:"4px 12px", fontSize:12, fontWeight:800 }}>{result.currency}</span>
@@ -866,7 +919,18 @@ Return ONLY valid JSON: {"suggested_code":"string","suggested_label":"string","c
                         onClick={() => { if(window.confirm("Clear all invoice history?")) { setHistory([]); saveHistory([]); } }}>
                         Clear All
                       </button>
-                      <button className="save-btn" style={{ padding:"11px 22px", fontSize:14 }} onClick={() => exportCSV(history)}>↓ Export CSV</button>
+                      <button className="save-btn" style={{ padding:"11px 22px", fontSize:14 }} onClick={() => exportCSV(history)}>↓ CSV</button>
+                      <button className="save-btn" style={{ padding:"11px 22px", fontSize:14, background:"linear-gradient(135deg,#1a6b3a,#22a85a)", boxShadow:"0 4px 20px rgba(26,107,58,0.3)" }}
+                        onClick={() => {
+                          // Bulk export — one .imp file per invoice
+                          history.forEach(r => {
+                            const content = generateSageImp(r);
+                            const a = document.createElement("a");
+                            a.href = URL.createObjectURL(new Blob([content],{type:"text/plain;charset=utf-8"}));
+                            a.download = `${getInvoiceNumber(r)}_sage.imp`;
+                            a.click();
+                          });
+                        }}>↓ Sage 50</button>
                     </div>
                   )}
                 </div>
@@ -912,7 +976,17 @@ Return ONLY valid JSON: {"suggested_code":"string","suggested_label":"string","c
                                 {r.selected_code} · {r.selected_label}
                               </span>
                               <button className="print-btn" onClick={() => setPrintRecord(r)}>
-                                🖨 Print Receipt
+                                🖨 Print
+                              </button>
+                              <button className="print-btn" style={{ color:"#4ade80", borderColor:"rgba(74,222,128,0.25)", background:"rgba(74,222,128,0.05)" }}
+                                onClick={() => {
+                                  const content = generateSageImp(r);
+                                  const a = document.createElement("a");
+                                  a.href = URL.createObjectURL(new Blob([content],{type:"text/plain;charset=utf-8"}));
+                                  a.download = `${getInvoiceNumber(r)}_sage.imp`;
+                                  a.click();
+                                }}>
+                                📤 Sage 50
                               </button>
                             </div>
                           </div>
